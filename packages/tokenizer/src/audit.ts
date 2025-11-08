@@ -4,7 +4,7 @@
 import { readFile } from 'fs/promises';
 import { ModelName, TokenAuditResult } from './types.js';
 import { countTokensInText } from './counter.js';
-import { autoDetectFormat } from '@toon/converter/detector.js';
+import { autoDetectFormat } from '@toon/converter';
 import { encodeToon } from '@toon/format';
 
 /**

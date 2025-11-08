@@ -4,7 +4,6 @@
  * TOON CLI - Command-line tool for format conversion and token optimization
  */
 import { Command } from 'commander';
-import chalk from 'chalk';
 import { convertCommand } from './commands/convert.js';
 import { optimizeCommand } from './commands/optimize.js';
 import { auditCommand } from './commands/audit.js';

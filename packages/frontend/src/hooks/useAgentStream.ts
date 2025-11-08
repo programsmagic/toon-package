@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
-import { AgentEvent, EventType } from '@toon/core';
+import { AgentEvent } from '@toon/core';
 
 export interface UseAgentStreamOptions {
   url: string;
@@ -79,7 +79,7 @@ export function useAgentStream(options: UseAgentStreamOptions): UseAgentStreamRe
           }
         };
 
-        eventSource.onerror = (err) => {
+        eventSource.onerror = (_err) => {
           setIsConnected(false);
           setIsConnecting(false);
           const error = new Error('SSE connection error');
@@ -87,7 +87,7 @@ export function useAgentStream(options: UseAgentStreamOptions): UseAgentStreamRe
           onError?.(error);
           eventSource.close();
         };
-      } catch (err) {
+      } catch (err: unknown) {
         const error = err instanceof Error ? err : new Error('Failed to create EventSource');
         setError(error);
         setIsConnecting(false);
@@ -109,7 +109,7 @@ export function useAgentStream(options: UseAgentStreamOptions): UseAgentStreamRe
             const event = JSON.parse(message.data) as AgentEvent;
             setEvents((prev) => [...prev, event]);
             onEvent?.(event);
-          } catch (err) {
+          } catch (err: unknown) {
             const error = err instanceof Error ? err : new Error('Failed to parse event');
             setError(error);
             onError?.(error);
@@ -129,7 +129,7 @@ export function useAgentStream(options: UseAgentStreamOptions): UseAgentStreamRe
           setIsConnecting(false);
           onDisconnect?.();
         };
-      } catch (err) {
+      } catch (err: unknown) {
         const error = err instanceof Error ? err : new Error('Failed to create WebSocket');
         setError(error);
         setIsConnecting(false);

@@ -1,17 +1,14 @@
 import { FastifyInstance, FastifyRequest } from 'fastify';
 import { readFile } from 'fs/promises';
 import { existsSync } from 'fs';
-import { encodeToon } from '@toon/format';
-import { parseToon } from '@toon/format';
 import { convert } from '@toon/converter';
 import { countTokensInText } from '@toon/tokenizer';
 import { EventEmitter } from '../event-emitter.js';
-import { EventType } from '@toon/core';
 
 /**
  * Register TOON format streaming route
  */
-export function registerToonStreamRoute(fastify: FastifyInstance, eventEmitter: EventEmitter): void {
+export function registerToonStreamRoute(fastify: FastifyInstance, _eventEmitter: EventEmitter): void {
   fastify.get('/stream/toon', async (request: FastifyRequest, reply) => {
     const { file, format = 'json', model = 'gpt-4' } = request.query as {
       file?: string;

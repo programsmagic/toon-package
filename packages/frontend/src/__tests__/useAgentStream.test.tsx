@@ -1,4 +1,4 @@
-import { renderHook, waitFor } from '@testing-library/react';
+import { renderHook } from '@testing-library/react';
 import { useAgentStream } from '../hooks/useAgentStream.js';
 
 // Mock EventSource
@@ -7,7 +7,10 @@ global.EventSource = jest.fn().mockImplementation(() => ({
   onmessage: null,
   onerror: null,
   close: jest.fn(),
-}));
+  CONNECTING: 0,
+  OPEN: 1,
+  CLOSED: 2,
+})) as unknown as typeof EventSource;
 
 describe('useAgentStream', () => {
   it('should initialize with default values', () => {

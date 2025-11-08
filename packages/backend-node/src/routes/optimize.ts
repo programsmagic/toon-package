@@ -1,4 +1,4 @@
-import { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify';
+import { FastifyInstance } from 'fastify';
 import { convert, selectOptimalFormat } from '@toon/converter';
 import { countTokensInData, ModelName } from '@toon/tokenizer';
 

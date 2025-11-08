@@ -2,11 +2,10 @@ import { readFile } from 'fs/promises';
 import { existsSync } from 'fs';
 import chalk from 'chalk';
 import { compareAllFormats } from '@toon/converter';
-import { countTokensInData, ModelName } from '@toon/tokenizer';
 
 export async function compareCommand(
   file: string,
-  options: { model?: string } = {}
+  _options: { model?: string } = {}
 ): Promise<void> {
   try {
     if (!existsSync(file)) {
@@ -15,7 +14,6 @@ export async function compareCommand(
     }
 
     const content = await readFile(file, 'utf-8');
-    const model = (options.model || 'gpt-4') as ModelName;
 
     // Parse data
     let data: unknown;

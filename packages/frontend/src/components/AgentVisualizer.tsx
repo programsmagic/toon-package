@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react'; // Not needed in React 17+
 import { useAgentStream, UseAgentStreamOptions } from '../hooks/useAgentStream.js';
 import { EventTimeline } from './EventTimeline.js';
 import { FlowDiagram } from './FlowDiagram.js';

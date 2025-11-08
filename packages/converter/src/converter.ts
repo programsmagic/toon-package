@@ -6,7 +6,7 @@ import * as yaml from 'js-yaml';
 import Papa from 'papaparse';
 import { SupportedFormat, ConversionOptions, ConversionResult } from './types.js';
 import { autoDetectFormat } from './detector.js';
-import { selectOptimalFormat, compareFormats } from './selector.js';
+import { compareFormats } from './selector.js';
 
 /**
  * Convert between formats

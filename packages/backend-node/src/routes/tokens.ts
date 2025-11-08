@@ -1,4 +1,4 @@
-import { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify';
+import { FastifyInstance } from 'fastify';
 import { countTokensInText, countTokensInData, ModelName } from '@toon/tokenizer';
 
 interface TokensRequest {

@@ -63,7 +63,7 @@ function encodeValue(
   useLengthMarkers: boolean
 ): string {
   const indent = minimize ? '' : '  '.repeat(depth);
-  const newline = minimize ? '' : '\n';
+  // const newline = minimize ? '' : '\n'; // Reserved for future use
 
   if (value === null) {
     return formatNull();

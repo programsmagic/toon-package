@@ -12,7 +12,7 @@
     "./styles": "./dist/styles/toon-theme.css"
   },
   "scripts": {
-    "build": "tsc && tsup",
+    "build": "tsc --emitDeclarationOnly && tsup",
     "dev": "tsc --watch",
     "clean": "rm -rf dist",
     "lint": "eslint src --ext .ts,.tsx",

@@ -2,6 +2,7 @@ import { FastifyInstance } from 'fastify';
 import websocket from '@fastify/websocket';
 import { AgentEvent, EventType } from '@toon/core';
 import { EventEmitter } from '../event-emitter.js';
+import type { SocketStream } from '@fastify/websocket';
 
 /**
  * Register WebSocket route
@@ -12,9 +13,9 @@ export async function registerWebSocketRoute(
 ): Promise<void> {
   await fastify.register(websocket);
 
-  fastify.get('/ws', { websocket: true }, (connection, socket) => {
+  fastify.get('/ws', { websocket: true }, (connection: SocketStream) => {
     // Send connection confirmation
-    socket.send(
+    connection.socket.send(
       JSON.stringify({
         type: 'connected',
         timestamp: Date.now(),
@@ -24,8 +25,8 @@ export async function registerWebSocketRoute(
     // Set up event listener
     const handler = (event: AgentEvent) => {
       try {
-        if (socket.readyState === 1) { // WebSocket.OPEN
-          socket.send(JSON.stringify(event));
+        if (connection.socket.readyState === 1) { // WebSocket.OPEN
+          connection.socket.send(JSON.stringify(event));
         }
       } catch (error) {
         // Client disconnected
@@ -39,7 +40,7 @@ export async function registerWebSocketRoute(
     });
 
     // Handle incoming messages from client
-    socket.on('message', (message) => {
+    connection.socket.on('message', (message: Buffer) => {
       try {
         const data = JSON.parse(message.toString());
         // Handle client messages (e.g., subscribe/unsubscribe to specific events)
@@ -53,7 +54,7 @@ export async function registerWebSocketRoute(
     });
 
     // Clean up on disconnect
-    socket.on('close', () => {
+    connection.socket.on('close', () => {
       Object.values(EventType).forEach((eventType) => {
         eventEmitter.off(eventType, handler);
       });

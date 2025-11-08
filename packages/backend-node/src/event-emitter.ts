@@ -19,7 +19,6 @@ export class EventEmitter implements IEventEmitter {
     }
 
     // Also emit to 'all' listeners if needed
-    const allHandlers = this.handlers.get(EventType.HEARTBEAT); // Using HEARTBEAT as a placeholder for 'all'
     // In a real implementation, you might want a separate 'all' event type
   }
 

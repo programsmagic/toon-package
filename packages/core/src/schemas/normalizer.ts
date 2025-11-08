@@ -80,9 +80,11 @@ export function normalizeOpenAPISchema(
         const opResponses = op.responses as Record<string, unknown>;
         for (const [statusCode, response] of Object.entries(opResponses)) {
           const resp = response as Record<string, unknown>;
+          const content = (resp.content as Record<string, unknown>) || {};
+          const jsonContent = (content['application/json'] as Record<string, unknown>) || {};
           responses[statusCode] = {
             description: resp.description as string,
-            schema: (resp.content?.['application/json']?.schema as Record<string, unknown>) || {},
+            schema: (jsonContent.schema as Record<string, unknown>) || {},
           };
         }
       }
@@ -102,10 +104,11 @@ export function normalizeOpenAPISchema(
     }
   }
 
+  const info = (openApiDoc.info as Record<string, unknown>) || {};
   const schema: AgentSchema = {
     version: (openApiDoc.openapi as string) || '3.0.0',
-    name: (openApiDoc.info?.title as string) || 'API',
-    description: (openApiDoc.info?.description as string),
+    name: (info.title as string) || 'API',
+    description: (info.description as string),
     baseUrl,
     actions,
     metadata: {

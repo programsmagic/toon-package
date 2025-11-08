@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       package:
-        description: 'Package to publish (core, backend-node, frontend, or all)'
+        description: 'Package to publish (all, core, backend-node, frontend, format, converter, tokenizer, viewer, cli)'
         required: true
         default: 'all'
         type: choice
@@ -15,6 +15,11 @@ on:
           - core
           - backend-node
           - frontend
+          - format
+          - converter
+          - tokenizer
+          - viewer
+          - cli
 
 permissions:
   contents: read
@@ -63,6 +68,46 @@ jobs:
         if: ${{ github.event.inputs.package == 'all' || github.event.inputs.package == 'frontend' || github.event_name == 'release' }}
         run: |
           cd packages/frontend
+          pnpm publish --no-git-checks --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      
+      - name: Publish @toon/format
+        if: ${{ github.event.inputs.package == 'all' || github.event.inputs.package == 'format' || github.event_name == 'release' }}
+        run: |
+          cd packages/format
+          pnpm publish --no-git-checks --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      
+      - name: Publish @toon/converter
+        if: ${{ github.event.inputs.package == 'all' || github.event.inputs.package == 'converter' || github.event_name == 'release' }}
+        run: |
+          cd packages/converter
+          pnpm publish --no-git-checks --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      
+      - name: Publish @toon/tokenizer
+        if: ${{ github.event.inputs.package == 'all' || github.event.inputs.package == 'tokenizer' || github.event_name == 'release' }}
+        run: |
+          cd packages/tokenizer
+          pnpm publish --no-git-checks --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      
+      - name: Publish @toon/viewer
+        if: ${{ github.event.inputs.package == 'all' || github.event.inputs.package == 'viewer' || github.event_name == 'release' }}
+        run: |
+          cd packages/viewer
+          pnpm publish --no-git-checks --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      
+      - name: Publish @toon/cli
+        if: ${{ github.event.inputs.package == 'all' || github.event.inputs.package == 'cli' || github.event_name == 'release' }}
+        run: |
+          cd packages/cli
           pnpm publish --no-git-checks --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

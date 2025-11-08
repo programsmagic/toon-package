@@ -119,7 +119,7 @@ function createActionHandler(
 async function executeAction(
   action: AgentAction,
   request: FastifyRequest<ActionRequest>,
-  fullUrl: string
+  _fullUrl: string
 ): Promise<unknown> {
   // In a real implementation, this would:
   // 1. Build the request URL with query parameters

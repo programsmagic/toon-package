@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react'; // Not needed in React 17+
 import { motion } from 'framer-motion';
 import { AgentEvent, EventType } from '@toon/core';
 import { parseEvent } from '../utils/event-parser.js';

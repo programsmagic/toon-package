@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useAgentStream } from '../hooks/useAgentStream.js';
 import { EventTimeline } from './EventTimeline.js';
 import { AgentEvent } from '@toon/core';
@@ -28,7 +28,7 @@ export function StreamViewer({
 
   // Filter TOON-related events
   const toonEvents = events.filter((event) => {
-    return 'content' in event || 'row' in event || event.type === 'TEXT_MESSAGE_CONTENT';
+    return 'content' in event || 'row' in event;
   });
 
   return (

@@ -43,6 +43,7 @@
   ],
   "dependencies": {
     "@toon/format": "workspace:*",
+    "@toon/converter": "workspace:*",
     "tiktoken": "^1.0.10"
   },
   "devDependencies": {
