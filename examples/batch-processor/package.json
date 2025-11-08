@@ -1,0 +1,14 @@
+{
+  "name": "batch-processor-example",
+  "version": "0.1.0",
+  "description": "Batch file processing demo",
+  "type": "module",
+  "scripts": {
+    "process": "node process.js"
+  },
+  "dependencies": {
+    "@toon/converter": "workspace:*",
+    "@toon/tokenizer": "workspace:*"
+  }
+}
+

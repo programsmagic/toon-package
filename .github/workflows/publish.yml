@@ -1,0 +1,68 @@
+name: Publish to NPM
+
+on:
+  release:
+    types: [created]
+  workflow_dispatch:
+    inputs:
+      package:
+        description: 'Package to publish (core, backend-node, frontend, or all)'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - core
+          - backend-node
+          - frontend
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish-npm:
+    name: Publish to NPM
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'pnpm'
+      
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      
+      - name: Build packages
+        run: pnpm build
+      
+      - name: Publish @toon/core
+        if: ${{ github.event.inputs.package == 'all' || github.event.inputs.package == 'core' || github.event_name == 'release' }}
+        run: |
+          cd packages/core
+          pnpm publish --no-git-checks --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      
+      - name: Publish @toon/backend-node
+        if: ${{ github.event.inputs.package == 'all' || github.event.inputs.package == 'backend-node' || github.event_name == 'release' }}
+        run: |
+          cd packages/backend-node
+          pnpm publish --no-git-checks --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      
+      - name: Publish @toon/frontend
+        if: ${{ github.event.inputs.package == 'all' || github.event.inputs.package == 'frontend' || github.event_name == 'release' }}
+        run: |
+          cd packages/frontend
+          pnpm publish --no-git-checks --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -1,0 +1,14 @@
+{
+  "name": "agent-streaming-example",
+  "version": "0.1.0",
+  "description": "Agent streaming with TOON format",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@toon/backend-node": "workspace:*",
+    "@toon/frontend": "workspace:*"
+  }
+}
+

@@ -1,0 +1,15 @@
+{
+  "name": "agents-json-event-example",
+  "version": "0.1.0",
+  "description": "Developer event workflow demo with agents.json",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "@toon/backend-node": "workspace:*",
+    "@toon/frontend": "workspace:*"
+  }
+}
+

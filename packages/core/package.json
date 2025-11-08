@@ -1,0 +1,58 @@
+{
+  "name": "@toon/core",
+  "version": "0.1.0",
+  "description": "Core types, schema parsers, and normalization logic for Toon Agent Bridge",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "lint": "eslint src --ext .ts",
+    "type-check": "tsc --noEmit",
+    "test": "jest"
+  },
+  "keywords": [
+    "openapi",
+    "agents-json",
+    "schema-parser",
+    "agent-bridge",
+    "ai-agents",
+    "api-bridge",
+    "schema-normalization"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/toon-package.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/toon-package/issues"
+  },
+  "homepage": "https://yourusername.github.io/toon-package",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "dependencies": {
+    "@apidevtools/swagger-parser": "^10.1.0",
+    "ajv": "^8.12.0",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/jest": "^29.5.8",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.3.2"
+  }
+}
+

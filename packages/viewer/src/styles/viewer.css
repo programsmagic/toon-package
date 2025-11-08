@@ -1,0 +1,170 @@
+/**
+ * Format viewer styles
+ */
+
+.toon-format-viewer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.toon-viewer-header {
+  display: flex;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: #252526;
+  border-bottom: 1px solid #3e3e42;
+}
+
+.toon-viewer-controls {
+  display: flex;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: #252526;
+  border-bottom: 1px solid #3e3e42;
+  align-items: center;
+}
+
+.toon-viewer-error {
+  padding: 0.75rem 1rem;
+  background: #5a1d1d;
+  color: #f48771;
+  border-bottom: 1px solid #3e3e42;
+}
+
+.toon-viewer-pane {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #1e1e1e;
+}
+
+.toon-viewer-pane-header {
+  padding: 0.5rem 1rem;
+  background: #2d2d30;
+  border-bottom: 1px solid #3e3e42;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.toon-syntax-highlighter {
+  position: relative;
+  flex: 1;
+  overflow: auto;
+}
+
+.toon-syntax-editor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  background: transparent;
+  color: transparent;
+  border: none;
+  resize: none;
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  caret-color: #d4d4d4;
+  z-index: 1;
+}
+
+.toon-syntax-preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.toon-token-counter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.toon-token-label {
+  color: #858585;
+}
+
+.toon-token-value {
+  color: #4ec9b0;
+  font-weight: 600;
+}
+
+.toon-token-cost {
+  color: #ce9178;
+  font-size: 0.75rem;
+}
+
+.toon-token-model {
+  color: #858585;
+  font-size: 0.75rem;
+}
+
+.toon-format-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.toon-format-label {
+  font-size: 0.875rem;
+  color: #858585;
+}
+
+.toon-format-select {
+  padding: 0.375rem 0.75rem;
+  background: #3e3e42;
+  color: #d4d4d4;
+  border: 1px solid #3e3e42;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.toon-format-select:hover {
+  background: #464647;
+}
+
+.toon-copy-button {
+  padding: 0.375rem 0.75rem;
+  background: #0e639c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.toon-copy-button:hover {
+  background: #1177bb;
+}
+
+.toon-file-dropzone {
+  border: 2px dashed #3e3e42;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.toon-file-dropzone.active {
+  border-color: #0e639c;
+  background: #1e1e1e;
+}
+
+.toon-file-dropzone-content {
+  color: #858585;
+}
+

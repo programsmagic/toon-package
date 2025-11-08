@@ -1,0 +1,96 @@
+{
+  "version": "1.0.0",
+  "name": "Developer Event API",
+  "description": "API for managing developer events and agent competitions",
+  "baseUrl": "http://localhost:3000",
+  "actions": [
+    {
+      "id": "registerAgent",
+      "name": "Register Agent",
+      "description": "Register a new agent for the competition",
+      "endpoint": "/agents",
+      "method": "POST",
+      "parameters": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Agent name"
+        },
+        {
+          "name": "team",
+          "type": "string",
+          "required": true,
+          "description": "Team name"
+        }
+      ],
+      "requestBody": {
+        "contentType": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "team": { "type": "string" },
+            "capabilities": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      }
+    },
+    {
+      "id": "getAgents",
+      "name": "Get All Agents",
+      "description": "Retrieve all registered agents",
+      "endpoint": "/agents",
+      "method": "GET",
+      "parameters": []
+    },
+    {
+      "id": "submitTask",
+      "name": "Submit Task",
+      "description": "Submit a task result from an agent",
+      "endpoint": "/tasks",
+      "method": "POST",
+      "parameters": [],
+      "requestBody": {
+        "contentType": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "agentId": { "type": "string" },
+            "taskId": { "type": "string" },
+            "result": { "type": "object" }
+          }
+        }
+      }
+    }
+  ],
+  "flows": [
+    {
+      "id": "agentRegistrationFlow",
+      "name": "Agent Registration Flow",
+      "description": "Complete flow for registering and validating an agent",
+      "steps": [
+        {
+          "actionId": "registerAgent",
+          "onSuccess": ["validateAgent"],
+          "onError": ["notifyError"]
+        },
+        {
+          "actionId": "validateAgent",
+          "condition": "agent.validated === true",
+          "onSuccess": ["activateAgent"]
+        }
+      ],
+      "triggers": ["agent.registration.requested"]
+    }
+  ],
+  "links": [
+    {
+      "from": "registerAgent",
+      "to": "getAgents",
+      "relation": "creates",
+      "description": "Registering an agent creates a new entry in the agents list"
+    }
+  ]
+}
+

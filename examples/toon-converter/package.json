@@ -1,0 +1,13 @@
+{
+  "name": "toon-converter-example",
+  "version": "0.1.0",
+  "description": "Format conversion demo",
+  "type": "module",
+  "scripts": {
+    "convert": "node convert.js"
+  },
+  "dependencies": {
+    "@toon/converter": "workspace:*"
+  }
+}
+

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toon Agent Bridge - Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .feature-card h3 {
+            color: #6366f1;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .quick-start {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        
+        .quick-start h2 {
+            color: #6366f1;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        
+        .code-block {
+            background: #1e293b;
+            color: #f1f5f9;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .nav-link {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #6366f1;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+        
+        .nav-link:hover {
+            background: #4f46e5;
+        }
+        
+        .packages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .package-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid #6366f1;
+        }
+        
+        .package-card h3 {
+            color: #6366f1;
+            margin-bottom: 10px;
+        }
+        
+        .package-card code {
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Toon Agent Bridge</h1>
+        <p>Universal bridge for converting OpenAPI and agents.json schemas into agent-ready workflows</p>
+    </header>
+    
+    <div class="container">
+        <div class="quick-start">
+            <h2>Quick Start</h2>
+            <p>Install the packages you need:</p>
+            <div class="code-block">npm install @toon/core @toon/backend-node @toon/frontend</div>
+            
+            <p>Create a server from your OpenAPI schema:</p>
+            <div class="code-block">import { createServer } from '@toon/backend-node';
+
+const server = await createServer({
+  port: 3000,
+  schemaSource: './openapi.json',
+  cors: true,
+});
+
+await server.start();</div>
+            
+            <p>Use React components for visualization:</p>
+            <div class="code-block">import { AgentVisualizer } from '@toon/frontend';
+import '@toon/frontend/styles';
+
+&lt;AgentVisualizer
+  url="http://localhost:3000/events"
+  protocol="sse"
+  autoConnect={true}
+/&gt;</div>
+            
+            <div class="nav-links">
+                <a href="getting-started.html" class="nav-link">Getting Started</a>
+                <a href="openapi-guide.html" class="nav-link">OpenAPI Guide</a>
+                <a href="agents-json-guide.html" class="nav-link">agents.json Guide</a>
+                <a href="frontend-components.html" class="nav-link">Frontend Components</a>
+                <a href="developer-events.html" class="nav-link">Developer Events</a>
+                <a href="api-reference.html" class="nav-link">API Reference</a>
+            </div>
+        </div>
+        
+        <h2 style="color: #6366f1; margin: 40px 0 20px;">Features</h2>
+        <div class="features">
+            <div class="feature-card">
+                <h3>🔄 Zero-Config Integration</h3>
+                <p>Point to your OpenAPI or agents.json file and go live. No manual configuration needed.</p>
+            </div>
+            <div class="feature-card">
+                <h3>📡 Real-time Streaming</h3>
+                <p>SSE and WebSocket support for live agent state updates and event streaming.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🎨 Animated Visualizations</h3>
+                <p>Ready-made React components with animated "toon" styling for interactive agent visualization.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🔌 Framework Compatible</h3>
+                <p>Works with LangGraph, CrewAI, CopilotKit, and more. Easy integration with existing tools.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🌐 Multi-Language</h3>
+                <p>Node.js/TypeScript and Python backends available. Choose what works best for you.</p>
+            </div>
+            <div class="feature-card">
+                <h3>📦 Modular Packages</h3>
+                <p>Clean, modular packages for maximum flexibility. Use only what you need.</p>
+            </div>
+        </div>
+        
+        <h2 style="color: #6366f1; margin: 40px 0 20px;">Packages</h2>
+        <div class="packages">
+            <div class="package-card">
+                <h3>@toon/core</h3>
+                <p>Core types, schema parsers, and normalization logic.</p>
+                <code>npm install @toon/core</code>
+            </div>
+            <div class="package-card">
+                <h3>@toon/backend-node</h3>
+                <p>Node.js/TypeScript backend adapter with Fastify, SSE, and WebSocket.</p>
+                <code>npm install @toon/backend-node</code>
+            </div>
+            <div class="package-card">
+                <h3>@toon/frontend</h3>
+                <p>React components for agent visualization.</p>
+                <code>npm install @toon/frontend</code>
+            </div>
+            <div class="package-card">
+                <h3>toon-backend-python</h3>
+                <p>Python backend adapter with FastAPI, SSE, and WebSocket.</p>
+                <code>pip install toon-backend-python</code>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Toon Agent Bridge - MIT License</p>
+        <p><a href="https://github.com/yourusername/toon-package" style="color: #6366f1;">GitHub</a> | <a href="https://www.npmjs.com/org/toon" style="color: #6366f1;">NPM</a></p>
+    </footer>
+</body>
+</html>
+

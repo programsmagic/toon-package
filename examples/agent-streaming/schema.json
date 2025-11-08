@@ -1,0 +1,24 @@
+{
+  "version": "1.0.0",
+  "name": "Agent Streaming API",
+  "description": "API for agent streaming with TOON format",
+  "baseUrl": "http://localhost:3000",
+  "actions": [
+    {
+      "id": "streamData",
+      "name": "Stream Data",
+      "description": "Stream data in TOON format",
+      "endpoint": "/stream/toon",
+      "method": "GET",
+      "parameters": [
+        {
+          "name": "file",
+          "type": "string",
+          "required": true,
+          "description": "File path to stream"
+        }
+      ]
+    }
+  ]
+}
+

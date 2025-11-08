@@ -1,0 +1,344 @@
+/**
+ * Toon Theme - Animated, colorful styling for agent visualization
+ */
+
+:root {
+  --toon-primary: #6366f1;
+  --toon-secondary: #8b5cf6;
+  --toon-success: #10b981;
+  --toon-error: #ef4444;
+  --toon-warning: #f59e0b;
+  --toon-bg: #0f172a;
+  --toon-surface: #1e293b;
+  --toon-surface-hover: #334155;
+  --toon-text: #f1f5f9;
+  --toon-text-muted: #94a3b8;
+  --toon-border: #334155;
+  --toon-border-radius: 12px;
+  --toon-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --toon-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+}
+
+.toon-agent-visualizer {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background: var(--toon-bg);
+  color: var(--toon-text);
+  border-radius: var(--toon-border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--toon-shadow-lg);
+}
+
+.toon-visualizer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--toon-border);
+}
+
+.toon-status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.toon-status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.toon-status-dot.connected {
+  background: var(--toon-success);
+  box-shadow: 0 0 8px var(--toon-success);
+}
+
+.toon-status-dot.connecting {
+  background: var(--toon-warning);
+  box-shadow: 0 0 8px var(--toon-warning);
+}
+
+.toon-status-dot.disconnected {
+  background: var(--toon-error);
+  box-shadow: 0 0 8px var(--toon-error);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.toon-visualizer-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.toon-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toon-button-primary {
+  background: var(--toon-primary);
+  color: white;
+}
+
+.toon-button-primary:hover {
+  background: #4f46e5;
+  transform: translateY(-1px);
+  box-shadow: var(--toon-shadow);
+}
+
+.toon-button-secondary {
+  background: var(--toon-surface);
+  color: var(--toon-text);
+  border: 1px solid var(--toon-border);
+}
+
+.toon-button-secondary:hover {
+  background: var(--toon-surface-hover);
+}
+
+.toon-error-message {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid var(--toon-error);
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  color: var(--toon-error);
+}
+
+.toon-event-timeline {
+  margin-top: 1.5rem;
+}
+
+.toon-timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.toon-timeline-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.toon-event-count {
+  color: var(--toon-text-muted);
+  font-size: 0.875rem;
+}
+
+.toon-timeline-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.toon-timeline-empty {
+  text-align: center;
+  padding: 2rem;
+  color: var(--toon-text-muted);
+}
+
+.toon-action-card {
+  background: var(--toon-surface);
+  border: 1px solid var(--toon-border);
+  border-radius: var(--toon-border-radius);
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toon-action-card:hover {
+  background: var(--toon-surface-hover);
+  border-color: var(--toon-primary);
+  box-shadow: var(--toon-shadow);
+}
+
+.toon-action-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.toon-action-status {
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.toon-action-status.start {
+  color: var(--toon-primary);
+}
+
+.toon-action-status.success {
+  color: var(--toon-success);
+}
+
+.toon-action-status.error {
+  color: var(--toon-error);
+}
+
+.toon-action-status.pending {
+  color: var(--toon-text-muted);
+}
+
+.toon-action-name {
+  flex: 1;
+  font-weight: 500;
+}
+
+.toon-action-time {
+  color: var(--toon-text-muted);
+  font-size: 0.875rem;
+}
+
+.toon-action-details {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.toon-action-method {
+  background: var(--toon-primary);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+.toon-action-endpoint {
+  color: var(--toon-text-muted);
+  font-family: 'Monaco', 'Courier New', monospace;
+}
+
+.toon-action-response {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 6px;
+  font-size: 0.875rem;
+}
+
+.toon-action-response pre {
+  margin: 0;
+  color: var(--toon-text);
+  font-family: 'Monaco', 'Courier New', monospace;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.toon-action-error {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid var(--toon-error);
+  border-radius: 6px;
+  color: var(--toon-error);
+  font-size: 0.875rem;
+}
+
+.toon-flow-diagram {
+  margin-top: 1.5rem;
+}
+
+.toon-flow-header {
+  margin-bottom: 1rem;
+}
+
+.toon-flow-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.toon-flow-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.toon-flow-item {
+  background: var(--toon-surface);
+  border: 1px solid var(--toon-border);
+  border-radius: var(--toon-border-radius);
+  padding: 1rem;
+}
+
+.toon-flow-item.active {
+  border-color: var(--toon-primary);
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.3);
+}
+
+.toon-flow-item.complete {
+  border-color: var(--toon-success);
+}
+
+.toon-flow-name {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.toon-flow-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.toon-flow-step {
+  padding: 0.5rem;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-family: 'Monaco', 'Courier New', monospace;
+}
+
+.toon-flow-empty {
+  text-align: center;
+  padding: 2rem;
+  color: var(--toon-text-muted);
+}
+
+/* Scrollbar styling */
+.toon-timeline-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.toon-timeline-content::-webkit-scrollbar-track {
+  background: var(--toon-surface);
+  border-radius: 4px;
+}
+
+.toon-timeline-content::-webkit-scrollbar-thumb {
+  background: var(--toon-border);
+  border-radius: 4px;
+}
+
+.toon-timeline-content::-webkit-scrollbar-thumb:hover {
+  background: var(--toon-primary);
+}
+
