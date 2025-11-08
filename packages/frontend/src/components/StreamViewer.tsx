@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react'; // Not needed in React 17+
 import { useAgentStream } from '../hooks/useAgentStream.js';
 import { EventTimeline } from './EventTimeline.js';
 import { AgentEvent } from '@toon/core';

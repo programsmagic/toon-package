@@ -14,7 +14,7 @@
     "toon-bridge": "./dist/cli.js"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc --build",
     "dev": "tsx watch src/server.ts",
     "start": "node dist/server.js",
     "clean": "rm -rf dist",
@@ -37,13 +37,13 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/toon-package.git",
+    "url": "https://github.com/programsmagic/toon-package.git",
     "directory": "packages/backend-node"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/toon-package/issues"
+    "url": "https://github.com/programsmagic/toon-package/issues"
   },
-  "homepage": "https://yourusername.github.io/toon-package",
+  "homepage": "https://programsmagic.github.io/toon-package",
   "files": [
     "dist",
     "README.md"

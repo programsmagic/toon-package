@@ -2,17 +2,17 @@
   "name": "@toon/viewer",
   "version": "0.1.0",
   "description": "Rich React viewer component with split-pane UI for multi-format viewing and conversion",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
     },
     "./styles": "./dist/styles/viewer.css"
   },
   "scripts": {
-    "build": "tsc --emitDeclarationOnly && tsup",
+    "build": "tsup",
     "dev": "tsc --watch",
     "clean": "rm -rf dist",
     "lint": "eslint src --ext .ts,.tsx",
@@ -33,13 +33,13 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/toon-package.git",
+    "url": "https://github.com/programsmagic/toon-package.git",
     "directory": "packages/viewer"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/toon-package/issues"
+    "url": "https://github.com/programsmagic/toon-package/issues"
   },
-  "homepage": "https://yourusername.github.io/toon-package",
+  "homepage": "https://programsmagic.github.io/toon-package",
   "files": [
     "dist",
     "README.md"

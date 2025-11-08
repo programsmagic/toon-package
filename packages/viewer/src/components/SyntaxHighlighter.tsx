@@ -1,5 +1,5 @@
-import React from 'react';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+// import React from 'react'; // Not needed in React 17+
+import { Prism as PrismSyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 export interface SyntaxHighlighterProps {
@@ -21,7 +21,7 @@ export function SyntaxHighlighter({
   if (readOnly) {
     return (
       <div className="toon-syntax-highlighter">
-        <SyntaxHighlighter
+        <PrismSyntaxHighlighter
           language={language === 'toon' ? 'text' : language}
           style={vscDarkPlus}
           customStyle={{
@@ -31,7 +31,7 @@ export function SyntaxHighlighter({
           }}
         >
           {value}
-        </SyntaxHighlighter>
+        </PrismSyntaxHighlighter>
       </div>
     );
   }
@@ -45,7 +45,7 @@ export function SyntaxHighlighter({
         spellCheck={false}
       />
       <div className="toon-syntax-preview">
-        <SyntaxHighlighter
+        <PrismSyntaxHighlighter
           language={language === 'toon' ? 'text' : language}
           style={vscDarkPlus}
           customStyle={{
@@ -55,7 +55,7 @@ export function SyntaxHighlighter({
           }}
         >
           {value}
-        </SyntaxHighlighter>
+        </PrismSyntaxHighlighter>
       </div>
     </div>
   );

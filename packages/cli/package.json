@@ -8,7 +8,7 @@
     "toon": "./dist/cli-bin.js"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc --build",
     "dev": "tsx watch src/cli.ts",
     "clean": "rm -rf dist",
     "lint": "eslint src --ext .ts",
@@ -28,13 +28,13 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/toon-package.git",
+    "url": "https://github.com/programsmagic/toon-package.git",
     "directory": "packages/cli"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/toon-package/issues"
+    "url": "https://github.com/programsmagic/toon-package/issues"
   },
-  "homepage": "https://yourusername.github.io/toon-package",
+  "homepage": "https://programsmagic.github.io/toon-package",
   "files": [
     "dist",
     "README.md"
