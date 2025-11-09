@@ -7,7 +7,7 @@
     "convert": "node convert.js"
   },
   "dependencies": {
-    "@toon/converter": "workspace:*"
+    "@programsmagic/toon-converter": "workspace:*"
   }
 }
 

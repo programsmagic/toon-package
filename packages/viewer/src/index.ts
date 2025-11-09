@@ -1,5 +1,5 @@
 /**
- * @toon/viewer - Rich React viewer component for multi-format viewing
+ * @programsmagic/toon-viewer - Rich React viewer component for multi-format viewing
  */
 
 export * from './components/FormatViewer.js';

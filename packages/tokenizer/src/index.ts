@@ -1,5 +1,5 @@
 /**
- * @toon/tokenizer - Token counting and estimation utilities
+ * @programsmagic/toon-tokenizer - Token counting and estimation utilities
  */
 
 // Token counting

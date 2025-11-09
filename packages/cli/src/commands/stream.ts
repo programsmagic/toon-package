@@ -1,6 +1,6 @@
 import { existsSync } from 'fs';
 import chalk from 'chalk';
-import { SupportedFormat } from '@toon/converter';
+import { SupportedFormat } from '@programsmagic/toon-converter';
 
 export async function streamCommand(
   file: string,

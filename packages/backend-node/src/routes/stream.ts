@@ -1,5 +1,5 @@
 import { FastifyInstance, FastifyRequest } from 'fastify';
-import { AgentEvent, EventType } from '@toon/core';
+import { AgentEvent, EventType } from '@programsmagic/toon-core';
 import { EventEmitter } from '../event-emitter.js';
 
 /**

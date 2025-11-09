@@ -1,7 +1,7 @@
 import { readFile } from 'fs/promises';
 import { existsSync } from 'fs';
 import chalk from 'chalk';
-import { compareAllFormats } from '@toon/converter';
+import { compareAllFormats } from '@programsmagic/toon-converter';
 
 export async function compareCommand(
   file: string,

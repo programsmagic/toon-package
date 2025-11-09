@@ -1,5 +1,5 @@
 import { EventEmitter } from '../event-emitter.js';
-import { EventType } from '@toon/core';
+import { EventType } from '@programsmagic/toon-core';
 
 describe('EventEmitter', () => {
   it('should emit and handle events', () => {

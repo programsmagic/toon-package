@@ -1,5 +1,5 @@
 import { FastifyInstance } from 'fastify';
-import { countTokensInText, countTokensInData, ModelName } from '@toon/tokenizer';
+import { countTokensInText, countTokensInData, ModelName } from '@programsmagic/toon-tokenizer';
 
 interface TokensRequest {
   Body: {

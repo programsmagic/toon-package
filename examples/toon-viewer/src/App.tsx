@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { FormatViewer, FileDropZone } from '@toon/viewer';
-import '@toon/viewer/styles';
+import { FormatViewer, FileDropZone } from '@programsmagic/toon-viewer';
+import '@programsmagic/toon-viewer/styles';
 
 function App() {
   const [content, setContent] = useState('{"user": {"id": 123, "name": "Ada", "tags": ["reading", "gaming"], "active": true}}');

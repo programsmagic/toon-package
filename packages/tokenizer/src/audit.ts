@@ -4,8 +4,8 @@
 import { readFile } from 'fs/promises';
 import { ModelName, TokenAuditResult } from './types.js';
 import { countTokensInText } from './counter.js';
-import { autoDetectFormat } from '@toon/converter';
-import { encodeToon } from '@toon/format';
+import { autoDetectFormat } from '@programsmagic/toon-converter';
+import { encodeToon } from '@programsmagic/toon-format';
 
 /**
  * Audit token usage in a file

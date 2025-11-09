@@ -41,58 +41,58 @@ importers:
 
   examples/agent-streaming:
     dependencies:
-      '@toon/backend-node':
+      '@programsmagic/toon-backend-node':
         specifier: workspace:*
         version: link:../../packages/backend-node
-      '@toon/frontend':
+      '@programsmagic/toon-frontend':
         specifier: workspace:*
         version: link:../../packages/frontend
 
   examples/agents-json-event:
     dependencies:
-      '@toon/backend-node':
+      '@programsmagic/toon-backend-node':
         specifier: workspace:*
         version: link:../../packages/backend-node
-      '@toon/frontend':
+      '@programsmagic/toon-frontend':
         specifier: workspace:*
         version: link:../../packages/frontend
 
   examples/basic-openapi:
     dependencies:
-      '@toon/backend-node':
+      '@programsmagic/toon-backend-node':
         specifier: workspace:*
         version: link:../../packages/backend-node
-      '@toon/frontend':
+      '@programsmagic/toon-frontend':
         specifier: workspace:*
         version: link:../../packages/frontend
 
   examples/batch-processor:
     dependencies:
-      '@toon/converter':
+      '@programsmagic/toon-converter':
         specifier: workspace:*
         version: link:../../packages/converter
-      '@toon/tokenizer':
+      '@programsmagic/toon-tokenizer':
         specifier: workspace:*
         version: link:../../packages/tokenizer
 
   examples/token-optimizer:
     dependencies:
-      '@toon/converter':
+      '@programsmagic/toon-converter':
         specifier: workspace:*
         version: link:../../packages/converter
-      '@toon/tokenizer':
+      '@programsmagic/toon-tokenizer':
         specifier: workspace:*
         version: link:../../packages/tokenizer
 
   examples/toon-converter:
     dependencies:
-      '@toon/converter':
+      '@programsmagic/toon-converter':
         specifier: workspace:*
         version: link:../../packages/converter
 
   examples/toon-viewer:
     dependencies:
-      '@toon/viewer':
+      '@programsmagic/toon-viewer':
         specifier: workspace:*
         version: link:../../packages/viewer
       react:
@@ -129,16 +129,16 @@ importers:
       '@fastify/websocket':
         specifier: ^8.3.0
         version: 8.3.1
-      '@toon/converter':
+      '@programsmagic/toon-converter':
         specifier: workspace:*
         version: link:../converter
-      '@toon/core':
+      '@programsmagic/toon-core':
         specifier: workspace:*
         version: link:../core
-      '@toon/format':
+      '@programsmagic/toon-format':
         specifier: workspace:*
         version: link:../format
-      '@toon/tokenizer':
+      '@programsmagic/toon-tokenizer':
         specifier: workspace:*
         version: link:../tokenizer
       fastify:
@@ -172,10 +172,10 @@ importers:
 
   packages/cli:
     dependencies:
-      '@toon/converter':
+      '@programsmagic/toon-converter':
         specifier: workspace:*
         version: link:../converter
-      '@toon/tokenizer':
+      '@programsmagic/toon-tokenizer':
         specifier: workspace:*
         version: link:../tokenizer
       chalk:
@@ -206,10 +206,10 @@ importers:
 
   packages/converter:
     dependencies:
-      '@toon/core':
+      '@programsmagic/toon-core':
         specifier: workspace:*
         version: link:../core
-      '@toon/format':
+      '@programsmagic/toon-format':
         specifier: workspace:*
         version: link:../format
       js-yaml:
@@ -271,7 +271,7 @@ importers:
 
   packages/format:
     dependencies:
-      '@toon/core':
+      '@programsmagic/toon-core':
         specifier: workspace:*
         version: link:../core
       zod:
@@ -296,15 +296,15 @@ importers:
 
   packages/frontend:
     dependencies:
+      '@programsmagic/toon-core':
+        specifier: workspace:*
+        version: link:../core
+      '@programsmagic/toon-viewer':
+        specifier: workspace:*
+        version: link:../viewer
       '@tanstack/react-query':
         specifier: ^5.12.0
         version: 5.90.7(react@18.3.1)
-      '@toon/core':
-        specifier: workspace:*
-        version: link:../core
-      '@toon/viewer':
-        specifier: workspace:*
-        version: link:../viewer
       framer-motion:
         specifier: ^10.16.5
         version: 10.18.0(react-dom@18.3.1)(react@18.3.1)
@@ -360,10 +360,10 @@ importers:
 
   packages/tokenizer:
     dependencies:
-      '@toon/converter':
+      '@programsmagic/toon-converter':
         specifier: workspace:*
         version: link:../converter
-      '@toon/format':
+      '@programsmagic/toon-format':
         specifier: workspace:*
         version: link:../format
       tiktoken:
@@ -388,13 +388,13 @@ importers:
 
   packages/viewer:
     dependencies:
-      '@toon/converter':
+      '@programsmagic/toon-converter':
         specifier: workspace:*
         version: link:../converter
-      '@toon/frontend':
+      '@programsmagic/toon-frontend':
         specifier: workspace:*
         version: link:../frontend
-      '@toon/tokenizer':
+      '@programsmagic/toon-tokenizer':
         specifier: workspace:*
         version: link:../tokenizer
       allotment:

@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
-import { AgentEvent } from '@toon/core';
+import { AgentEvent } from '@programsmagic/toon-core';
 
 export interface UseAgentStreamOptions {
   url: string;

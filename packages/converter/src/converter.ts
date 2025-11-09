@@ -1,7 +1,7 @@
 /**
  * Multi-format conversion engine
  */
-import { encodeToon, parseToon } from '@toon/format';
+import { encodeToon, parseToon } from '@programsmagic/toon-format';
 import * as yaml from 'js-yaml';
 import Papa from 'papaparse';
 import { SupportedFormat, ConversionOptions, ConversionResult } from './types.js';

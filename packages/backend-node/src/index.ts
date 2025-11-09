@@ -1,5 +1,5 @@
 /**
- * @toon/backend-node - Node.js/TypeScript backend adapter
+ * @programsmagic/toon-backend-node - Node.js/TypeScript backend adapter
  */
 
 export * from './server.js';

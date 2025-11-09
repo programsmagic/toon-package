@@ -1,7 +1,7 @@
 // import React from 'react'; // Not needed in React 17+
 import { useAgentStream } from '../hooks/useAgentStream.js';
 import { EventTimeline } from './EventTimeline.js';
-import { AgentEvent } from '@toon/core';
+import { AgentEvent } from '@programsmagic/toon-core';
 import '../styles/toon-theme.css';
 
 export interface StreamViewerProps {

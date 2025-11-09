@@ -1,4 +1,4 @@
-import { AgentEvent, EventType } from '@toon/core';
+import { AgentEvent, EventType } from '@programsmagic/toon-core';
 
 /**
  * Parse and categorize events

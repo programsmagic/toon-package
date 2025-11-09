@@ -1,6 +1,6 @@
 import { FastifyInstance } from 'fastify';
-import { convert, selectOptimalFormat } from '@toon/converter';
-import { countTokensInData, ModelName } from '@toon/tokenizer';
+import { convert, selectOptimalFormat } from '@programsmagic/toon-converter';
+import { countTokensInData, ModelName } from '@programsmagic/toon-tokenizer';
 
 interface OptimizeRequest {
   Body: {

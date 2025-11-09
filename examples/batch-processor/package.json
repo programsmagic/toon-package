@@ -7,8 +7,8 @@
     "process": "node process.js"
   },
   "dependencies": {
-    "@toon/converter": "workspace:*",
-    "@toon/tokenizer": "workspace:*"
+    "@programsmagic/toon-converter": "workspace:*",
+    "@programsmagic/toon-tokenizer": "workspace:*"
   }
 }
 

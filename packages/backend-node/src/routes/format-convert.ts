@@ -1,6 +1,6 @@
 import { FastifyInstance } from 'fastify';
-import { convert } from '@toon/converter';
-import { SupportedFormat } from '@toon/converter';
+import { convert } from '@programsmagic/toon-converter';
+import { SupportedFormat } from '@programsmagic/toon-converter';
 
 interface ConvertRequest {
   Body: {

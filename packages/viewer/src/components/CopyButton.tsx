@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { SupportedFormat } from '@toon/converter';
+import type { SupportedFormat } from '@programsmagic/toon-converter';
 
 export interface CopyButtonProps {
   content: string;

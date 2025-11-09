@@ -1,8 +1,8 @@
 import { useState, useCallback, useMemo, useEffect } from 'react';
 import { Allotment } from 'allotment';
 import 'allotment/dist/style.css';
-import { convert, type SupportedFormat } from '@toon/converter';
-import { countTokensInText } from '@toon/tokenizer';
+import { convert, type SupportedFormat } from '@programsmagic/toon-converter';
+import { countTokensInText } from '@programsmagic/toon-tokenizer';
 import { SyntaxHighlighter } from './SyntaxHighlighter.js';
 import { TokenCounter } from './TokenCounter.js';
 import { FormatSelector } from './FormatSelector.js';

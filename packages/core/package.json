@@ -1,5 +1,5 @@
 {
-  "name": "@toon/core",
+  "name": "@programsmagic/toon-core",
   "version": "0.1.0",
   "description": "Core types, schema parsers, and normalization logic for Toon Agent Bridge",
   "main": "./dist/index.js",
@@ -38,14 +38,6 @@
     "url": "https://github.com/programsmagic/toon-package/issues"
   },
   "homepage": "https://programsmagic.github.io/toon-package",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/programsmagic/toon-package.git",
-    "directory": "packages/core"
-  },
-  "bugs": {
-    "url": "https://github.com/programsmagic/toon-package/issues"
-  },
   "files": [
     "dist",
     "README.md"

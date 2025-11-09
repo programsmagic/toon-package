@@ -1,5 +1,5 @@
 /**
- * @toon/core - Core types, schema parsers, and normalization logic
+ * @programsmagic/toon-core - Core types, schema parsers, and normalization logic
  */
 
 // Types

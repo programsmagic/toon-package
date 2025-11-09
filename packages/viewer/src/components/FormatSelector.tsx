@@ -1,5 +1,5 @@
 // import React from 'react'; // Not needed in React 17+
-import type { SupportedFormat } from '@toon/converter';
+import type { SupportedFormat } from '@programsmagic/toon-converter';
 
 export interface FormatSelectorProps {
   value: SupportedFormat;

@@ -1,5 +1,5 @@
 /**
- * @toon/format - TOON format parser/encoder with TOON+ extensions
+ * @programsmagic/toon-format - TOON format parser/encoder with TOON+ extensions
  */
 
 // Core functions

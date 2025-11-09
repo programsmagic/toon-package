@@ -1,5 +1,5 @@
 {
-  "name": "@toon/frontend",
+  "name": "@programsmagic/toon-frontend",
   "version": "0.1.0",
   "description": "React components for agent visualization with animated toon styling",
   "main": "./dist/index.mjs",
@@ -49,8 +49,8 @@
     "react-dom": "^18.0.0"
   },
   "dependencies": {
-    "@toon/core": "workspace:*",
-    "@toon/viewer": "workspace:*",
+    "@programsmagic/toon-core": "workspace:*",
+    "@programsmagic/toon-viewer": "workspace:*",
     "@tanstack/react-query": "^5.12.0",
     "framer-motion": "^10.16.5"
   },

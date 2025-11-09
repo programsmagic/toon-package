@@ -2,7 +2,7 @@ import { readFile, writeFile } from 'fs/promises';
 import { existsSync } from 'fs';
 import { join, dirname, extname, basename } from 'path';
 import chalk from 'chalk';
-import { convert, SupportedFormat } from '@toon/converter';
+import { convert, SupportedFormat } from '@programsmagic/toon-converter';
 
 export async function convertCommand(
   input: string,

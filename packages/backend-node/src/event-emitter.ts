@@ -1,4 +1,4 @@
-import { AgentEvent, EventType, EventEmitter as IEventEmitter } from '@toon/core';
+import { AgentEvent, EventType, EventEmitter as IEventEmitter } from '@programsmagic/toon-core';
 
 /**
  * Simple event emitter implementation for agent events

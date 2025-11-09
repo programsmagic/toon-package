@@ -7,8 +7,8 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "@toon/backend-node": "workspace:*",
-    "@toon/frontend": "workspace:*"
+    "@programsmagic/toon-backend-node": "workspace:*",
+    "@programsmagic/toon-frontend": "workspace:*"
   }
 }
 

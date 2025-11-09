@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@toon/viewer": "workspace:*",
+    "@programsmagic/toon-viewer": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

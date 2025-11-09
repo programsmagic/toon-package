@@ -1,5 +1,5 @@
 {
-  "name": "@toon/tokenizer",
+  "name": "@programsmagic/toon-tokenizer",
   "version": "0.1.0",
   "description": "Token counting and estimation utilities for multiple LLM models",
   "main": "./dist/index.js",
@@ -42,8 +42,8 @@
     "README.md"
   ],
   "dependencies": {
-    "@toon/format": "workspace:*",
-    "@toon/converter": "workspace:*",
+    "@programsmagic/toon-format": "workspace:*",
+    "@programsmagic/toon-converter": "workspace:*",
     "tiktoken": "^1.0.10"
   },
   "devDependencies": {

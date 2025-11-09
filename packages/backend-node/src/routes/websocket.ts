@@ -1,6 +1,6 @@
 import { FastifyInstance } from 'fastify';
 import websocket from '@fastify/websocket';
-import { AgentEvent, EventType } from '@toon/core';
+import { AgentEvent, EventType } from '@programsmagic/toon-core';
 import { EventEmitter } from '../event-emitter.js';
 import type { SocketStream } from '@fastify/websocket';
 

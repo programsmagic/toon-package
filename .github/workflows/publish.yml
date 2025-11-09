@@ -48,7 +48,7 @@ jobs:
       - name: Build packages
         run: pnpm build
       
-      - name: Publish @toon/core
+      - name: Publish @programsmagic/toon-core
         if: ${{ github.event.inputs.package == 'all' || github.event.inputs.package == 'core' || github.event_name == 'release' }}
         run: |
           cd packages/core
@@ -56,23 +56,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       
-      - name: Publish @toon/backend-node
-        if: ${{ github.event.inputs.package == 'all' || github.event.inputs.package == 'backend-node' || github.event_name == 'release' }}
-        run: |
-          cd packages/backend-node
-          pnpm publish --no-git-checks --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      
-      - name: Publish @toon/frontend
-        if: ${{ github.event.inputs.package == 'all' || github.event.inputs.package == 'frontend' || github.event_name == 'release' }}
-        run: |
-          cd packages/frontend
-          pnpm publish --no-git-checks --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      
-      - name: Publish @toon/format
+      - name: Publish @programsmagic/toon-format
         if: ${{ github.event.inputs.package == 'all' || github.event.inputs.package == 'format' || github.event_name == 'release' }}
         run: |
           cd packages/format
@@ -80,7 +64,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       
-      - name: Publish @toon/converter
+      - name: Publish @programsmagic/toon-converter
         if: ${{ github.event.inputs.package == 'all' || github.event.inputs.package == 'converter' || github.event_name == 'release' }}
         run: |
           cd packages/converter
@@ -88,7 +72,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       
-      - name: Publish @toon/tokenizer
+      - name: Publish @programsmagic/toon-tokenizer
         if: ${{ github.event.inputs.package == 'all' || github.event.inputs.package == 'tokenizer' || github.event_name == 'release' }}
         run: |
           cd packages/tokenizer
@@ -96,7 +80,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       
-      - name: Publish @toon/viewer
+      - name: Publish @programsmagic/toon-viewer
         if: ${{ github.event.inputs.package == 'all' || github.event.inputs.package == 'viewer' || github.event_name == 'release' }}
         run: |
           cd packages/viewer
@@ -104,7 +88,23 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       
-      - name: Publish @toon/cli
+      - name: Publish @programsmagic/toon-frontend
+        if: ${{ github.event.inputs.package == 'all' || github.event.inputs.package == 'frontend' || github.event_name == 'release' }}
+        run: |
+          cd packages/frontend
+          pnpm publish --no-git-checks --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      
+      - name: Publish @programsmagic/toon-backend-node
+        if: ${{ github.event.inputs.package == 'all' || github.event.inputs.package == 'backend-node' || github.event_name == 'release' }}
+        run: |
+          cd packages/backend-node
+          pnpm publish --no-git-checks --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      
+      - name: Publish @programsmagic/toon-cli
         if: ${{ github.event.inputs.package == 'all' || github.event.inputs.package == 'cli' || github.event_name == 'release' }}
         run: |
           cd packages/cli

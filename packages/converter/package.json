@@ -1,5 +1,5 @@
 {
-  "name": "@toon/converter",
+  "name": "@programsmagic/toon-converter",
   "version": "0.1.0",
   "description": "Multi-format converter (JSON/TOON/CSV/YAML) with smart format selection and auto-detection",
   "main": "./dist/index.js",
@@ -43,8 +43,8 @@
     "README.md"
   ],
   "dependencies": {
-    "@toon/format": "workspace:*",
-    "@toon/core": "workspace:*",
+    "@programsmagic/toon-format": "workspace:*",
+    "@programsmagic/toon-core": "workspace:*",
     "js-yaml": "^4.1.0",
     "papaparse": "^5.4.1"
   },

@@ -1,6 +1,6 @@
 import { existsSync } from 'fs';
 import chalk from 'chalk';
-import { auditFiles, ModelName } from '@toon/tokenizer';
+import { auditFiles, ModelName } from '@programsmagic/toon-tokenizer';
 
 export async function auditCommand(
   files: string[],

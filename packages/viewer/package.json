@@ -1,5 +1,5 @@
 {
-  "name": "@toon/viewer",
+  "name": "@programsmagic/toon-viewer",
   "version": "0.1.0",
   "description": "Rich React viewer component with split-pane UI for multi-format viewing and conversion",
   "main": "./dist/index.mjs",
@@ -49,9 +49,9 @@
     "react-dom": "^18.0.0"
   },
   "dependencies": {
-    "@toon/converter": "workspace:*",
-    "@toon/tokenizer": "workspace:*",
-    "@toon/frontend": "workspace:*",
+    "@programsmagic/toon-converter": "workspace:*",
+    "@programsmagic/toon-tokenizer": "workspace:*",
+    "@programsmagic/toon-frontend": "workspace:*",
     "allotment": "^1.2.0",
     "react-syntax-highlighter": "^15.5.0",
     "react-dropzone": "^14.2.3"

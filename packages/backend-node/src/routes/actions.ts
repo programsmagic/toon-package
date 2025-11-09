@@ -1,5 +1,5 @@
 import { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify';
-import { AgentSchema, AgentAction, EventType } from '@toon/core';
+import { AgentSchema, AgentAction, EventType } from '@programsmagic/toon-core';
 import { EventEmitter } from '../event-emitter.js';
 
 interface ActionRequest {

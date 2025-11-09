@@ -1,6 +1,6 @@
 // import React from 'react'; // Not needed in React 17+
 // import { motion } from 'framer-motion'; // Reserved for future use
-import { AgentEvent } from '@toon/core';
+import { AgentEvent } from '@programsmagic/toon-core';
 import { ActionCard } from './ActionCard.js';
 import '../styles/toon-theme.css';
 

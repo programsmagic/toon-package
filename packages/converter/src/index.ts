@@ -1,5 +1,5 @@
 /**
- * @toon/converter - Multi-format converter with smart format selection
+ * @programsmagic/toon-converter - Multi-format converter with smart format selection
  */
 
 // Core conversion

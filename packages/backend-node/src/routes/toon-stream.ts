@@ -1,8 +1,8 @@
 import { FastifyInstance, FastifyRequest } from 'fastify';
 import { readFile } from 'fs/promises';
 import { existsSync } from 'fs';
-import { convert } from '@toon/converter';
-import { countTokensInText } from '@toon/tokenizer';
+import { convert } from '@programsmagic/toon-converter';
+import { countTokensInText } from '@programsmagic/toon-tokenizer';
 import { EventEmitter } from '../event-emitter.js';
 
 /**

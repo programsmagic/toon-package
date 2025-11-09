@@ -1,8 +1,8 @@
 import { readFile, writeFile } from 'fs/promises';
 import { existsSync } from 'fs';
 import chalk from 'chalk';
-import { convertFile, selectOptimalFormat } from '@toon/converter';
-import { countTokensInData, ModelName } from '@toon/tokenizer';
+import { convertFile, selectOptimalFormat } from '@programsmagic/toon-converter';
+import { countTokensInData, ModelName } from '@programsmagic/toon-tokenizer';
 
 export async function optimizeCommand(
   file: string,

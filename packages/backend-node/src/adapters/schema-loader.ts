@@ -2,7 +2,7 @@ import {
   parseOpenAPISchema,
   parseAgentsJsonSchema,
   NormalizedSchema,
-} from '@toon/core';
+} from '@programsmagic/toon-core';
 
 /**
  * Load and parse schema from file or URL
