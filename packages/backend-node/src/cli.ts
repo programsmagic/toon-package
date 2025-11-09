@@ -2,6 +2,7 @@
 
 import { createServer } from './server.js';
 import { parseArgs } from 'util';
+import { log } from '@programsmagic/toon-core';
 
 const args = parseArgs({
   options: {
@@ -15,7 +16,8 @@ const args = parseArgs({
 });
 
 if (args.values.help) {
-  console.log(`
+  // Use process.stdout.write for CLI output (not logging)
+  process.stdout.write(`
 Usage: toon-bridge [options] [schema-file]
 
 Options:
@@ -42,7 +44,7 @@ createServer({
 })
   .then((server) => server.start())
   .catch((error) => {
-    console.error('Failed to start server:', error);
+    log.error('Failed to start server', error);
     process.exit(1);
   });
 

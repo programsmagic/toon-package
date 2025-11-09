@@ -1,4 +1,4 @@
-import { AgentEvent, EventType, EventEmitter as IEventEmitter } from '@programsmagic/toon-core';
+import { AgentEvent, EventType, EventEmitter as IEventEmitter, log } from '@programsmagic/toon-core';
 
 /**
  * Simple event emitter implementation for agent events
@@ -13,7 +13,7 @@ export class EventEmitter implements IEventEmitter {
         try {
           handler(event);
         } catch (error) {
-          console.error(`Error in event handler for ${event.type}:`, error);
+          log.error(`Error in event handler for ${event.type}`, error);
         }
       });
     }

@@ -5,6 +5,10 @@ export default defineConfig({
   format: ['esm'],
   dts: {
     resolve: true,
+    compilerOptions: {
+      composite: false,
+      incremental: false,
+    },
   },
   splitting: false,
   sourcemap: true,

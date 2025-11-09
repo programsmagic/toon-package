@@ -1,8 +1,8 @@
 import { FastifyInstance, FastifyRequest } from 'fastify';
 import { readFile } from 'fs/promises';
 import { existsSync } from 'fs';
-import { convert } from '@programsmagic/toon-converter';
-import { countTokensInText } from '@programsmagic/toon-tokenizer';
+import { convert, type SupportedFormat } from '@programsmagic/toon-converter';
+import { countTokensInText, type ModelName } from '@programsmagic/toon-tokenizer';
 import { EventEmitter } from '../event-emitter.js';
 
 /**
@@ -31,6 +31,11 @@ export function registerToonStreamRoute(fastify: FastifyInstance, _eventEmitter:
     reply.raw.setHeader('X-Accel-Buffering', 'no');
 
     try {
+      // Validate file path (security: prevent directory traversal)
+      if (file.includes('..') || file.startsWith('/')) {
+        return reply.code(400).send({ error: 'Invalid file path' });
+      }
+
       const content = await readFile(file, 'utf-8');
       
       // Convert to TOON if needed
@@ -39,7 +44,7 @@ export function registerToonStreamRoute(fastify: FastifyInstance, _eventEmitter:
         toonContent = content;
       } else {
         const result = await convert(content, {
-          from: format as any,
+          from: (format || 'json') as SupportedFormat,
           to: 'toon',
           toon: { minimize: true },
         });
@@ -60,7 +65,7 @@ export function registerToonStreamRoute(fastify: FastifyInstance, _eventEmitter:
             type: 'row',
             index: rowIndex,
             content: line,
-            tokens: countTokensInText(line, model as any).tokens,
+            tokens: countTokensInText(line, (model || 'gpt-4') as ModelName).tokens,
           };
           reply.raw.write(`data: ${JSON.stringify(rowEvent)}\n\n`);
           rowIndex++;
@@ -70,9 +75,11 @@ export function registerToonStreamRoute(fastify: FastifyInstance, _eventEmitter:
       // Send completion event
       reply.raw.write(`data: ${JSON.stringify({ type: 'complete', totalRows: rowIndex })}\n\n`);
     } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
       reply.raw.write(
-        `data: ${JSON.stringify({ type: 'error', error: error instanceof Error ? error.message : 'Unknown error' })}\n\n`
+        `data: ${JSON.stringify({ type: 'error', error: errorMessage })}\n\n`
       );
+      reply.raw.end();
     }
   });
 }

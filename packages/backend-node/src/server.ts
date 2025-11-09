@@ -6,6 +6,7 @@ import { registerStreamRoute } from './routes/stream.js';
 import { registerWebSocketRoute } from './routes/websocket.js';
 import { EventEmitter } from './event-emitter.js';
 import { createAuthMiddleware, AuthConfig } from './middleware/auth.js';
+import { log } from '@programsmagic/toon-core';
 
 export interface ServerOptions {
   port?: number;
@@ -31,7 +32,13 @@ export async function createServer(options: ServerOptions) {
   }
 
   // Load schema
-  const normalizedSchema = await loadSchema(options.schemaSource);
+  let normalizedSchema;
+  try {
+    normalizedSchema = await loadSchema(options.schemaSource);
+  } catch (error) {
+    log.error('Failed to load schema', error);
+    throw new Error(`Failed to load schema from ${options.schemaSource}: ${error instanceof Error ? error.message : 'Unknown error'}`);
+  }
   const schema = normalizedSchema.schema;
 
   // Create event emitter
@@ -90,8 +97,9 @@ export async function createServer(options: ServerOptions) {
           port: options.port || 3000,
           host: options.host || '0.0.0.0',
         });
-        console.log(`Server listening on http://${options.host || '0.0.0.0'}:${options.port || 3000}`);
+        log.info(`Server listening on http://${options.host || '0.0.0.0'}:${options.port || 3000}`);
       } catch (error) {
+        log.error('Failed to start server', error);
         fastify.log.error(error);
         process.exit(1);
       }

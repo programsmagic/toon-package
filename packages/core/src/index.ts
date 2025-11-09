@@ -14,3 +14,6 @@ export * from './schemas/normalizer.js';
 // Validation utilities
 export * from './utils/validation.js';
 
+// Logging utilities
+export * from './utils/logger.js';
+

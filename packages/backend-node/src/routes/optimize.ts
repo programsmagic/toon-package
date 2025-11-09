@@ -1,6 +1,6 @@
 import { FastifyInstance } from 'fastify';
-import { convert, selectOptimalFormat } from '@programsmagic/toon-converter';
-import { countTokensInData, ModelName } from '@programsmagic/toon-tokenizer';
+import { convert, selectOptimalFormat, type SupportedFormat } from '@programsmagic/toon-converter';
+import { countTokensInData, type ModelName } from '@programsmagic/toon-tokenizer';
 
 interface OptimizeRequest {
   Body: {
@@ -25,9 +25,12 @@ export function registerOptimizeRoute(fastify: FastifyInstance): void {
       // Parse data
       let data: unknown;
       try {
-        data = from === 'json' ? JSON.parse(content) : JSON.parse(content);
-      } catch {
-        return reply.code(400).send({ error: 'Invalid JSON content' });
+        data = JSON.parse(content);
+      } catch (parseError) {
+        return reply.code(400).send({ 
+          error: 'Invalid JSON content',
+          details: parseError instanceof Error ? parseError.message : 'Unknown parsing error'
+        });
       }
 
       // Select optimal format
@@ -35,13 +38,21 @@ export function registerOptimizeRoute(fastify: FastifyInstance): void {
 
       // Convert to optimal format
       const result = await convert(content, {
-        from: from as any,
+        from: (from || 'json') as SupportedFormat,
         to: selection.recommended,
       });
 
       // Calculate token savings
       const originalTokens = countTokensInData(data, model);
-      const optimizedData = JSON.parse(result.content);
+      let optimizedData: unknown;
+      try {
+        optimizedData = JSON.parse(result.content);
+      } catch (parseError) {
+        return reply.code(500).send({
+          error: 'Failed to parse optimized content',
+          details: parseError instanceof Error ? parseError.message : 'Unknown parsing error'
+        });
+      }
       const optimizedTokens = countTokensInData(optimizedData, model);
       const savings = originalTokens.tokens - optimizedTokens.tokens;
       const percentage = originalTokens.tokens > 0
@@ -66,8 +77,14 @@ export function registerOptimizeRoute(fastify: FastifyInstance): void {
         },
       });
     } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      const errorStack = error instanceof Error && process.env.NODE_ENV !== 'production' 
+        ? error.stack 
+        : undefined;
+      
       return reply.code(500).send({
-        error: error instanceof Error ? error.message : 'Unknown error',
+        error: errorMessage,
+        ...(errorStack && { stack: errorStack }),
       });
     }
   });

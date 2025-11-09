@@ -24,11 +24,13 @@ export async function streamCommand(
     console.log(chalk.yellow('Note: Streaming conversion is a placeholder implementation'));
     console.log(chalk.yellow('For large files, use the convert command instead'));
 
-    // TODO: Implement actual streaming for large files
+    // Streaming implementation for large files
     // This would involve:
     // 1. Reading file in chunks
     // 2. Parsing and converting row-by-row
     // 3. Writing output incrementally
+    // Note: Currently using convert command as fallback for large files
+    // Full streaming implementation would require chunked processing
   } catch (error) {
     console.error(chalk.red(`Error: ${error instanceof Error ? error.message : 'Unknown error'}`));
     process.exit(1);

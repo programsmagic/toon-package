@@ -2,7 +2,7 @@ import { useState, useCallback, useMemo, useEffect } from 'react';
 import { Allotment } from 'allotment';
 import 'allotment/dist/style.css';
 import { convert, type SupportedFormat } from '@programsmagic/toon-converter';
-import { countTokensInText } from '@programsmagic/toon-tokenizer';
+import { countTokensInText, type ModelName } from '@programsmagic/toon-tokenizer';
 import { SyntaxHighlighter } from './SyntaxHighlighter.js';
 import { TokenCounter } from './TokenCounter.js';
 import { FormatSelector } from './FormatSelector.js';
@@ -81,8 +81,8 @@ export function FormatViewer({
   // Token counts
   const tokenCounts = useMemo(() => {
     try {
-      const source = countTokensInText(content, model as any);
-      const target = convertedContent ? countTokensInText(convertedContent, model as any) : null;
+      const source = countTokensInText(content, (model || 'gpt-4') as ModelName);
+      const target = convertedContent ? countTokensInText(convertedContent, (model || 'gpt-4') as ModelName) : null;
       return { source, target };
     } catch {
       return { source: null, target: null };

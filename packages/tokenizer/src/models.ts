@@ -18,7 +18,12 @@ export function getTokenizer(model: ModelName): Tiktoken {
     };
 
     if (model in modelMap) {
-      return encoding_for_model(model as any);
+      try {
+        return encoding_for_model(model as Parameters<typeof encoding_for_model>[0]);
+      } catch {
+        // Fallback if model encoding fails
+        return get_encoding('cl100k_base');
+      }
     }
 
     // Fallback to cl100k_base (GPT-4 encoding)
