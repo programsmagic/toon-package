@@ -36,9 +36,9 @@ jobs:
           node-version: '20'
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
-      - run: pnpm test --filter '@toon/core'
-      - run: pnpm test --filter '@toon/backend-node'
-      - run: pnpm test --filter '@toon/frontend'
+      - run: pnpm test --filter '@programsmagic/toon-core'
+      - run: pnpm test --filter '@programsmagic/toon-backend-node'
+      - run: pnpm test --filter '@programsmagic/toon-frontend'
 
   test-python:
     name: Test Python Package
@@ -72,4 +72,3 @@ jobs:
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
-      - run: pnpm build-docs
