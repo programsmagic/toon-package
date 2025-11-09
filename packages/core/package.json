@@ -38,6 +38,14 @@
     "url": "https://github.com/programsmagic/toon-package/issues"
   },
   "homepage": "https://programsmagic.github.io/toon-package",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/programsmagic/toon-package.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/programsmagic/toon-package/issues"
+  },
   "files": [
     "dist",
     "README.md"
