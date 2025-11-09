@@ -5,7 +5,7 @@ Complete guide to using the TOON CLI tool.
 ## Installation
 
 ```bash
-npm install -g @toon/cli
+npm install -g @programsmagic/toon-cli
 ```
 
 ## Commands

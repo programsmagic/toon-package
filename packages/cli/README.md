@@ -1,15 +1,15 @@
-# @toon/cli
+# @programsmagic/toon-cli
 
 Command-line tool for format conversion and token optimization.
 
 ## Installation
 
 ```bash
-npm install -g @toon/cli
+npm install -g @programsmagic/toon-cli
 # or
-pnpm add -g @toon/cli
+pnpm add -g @programsmagic/toon-cli
 # or
-yarn global add @toon/cli
+yarn global add @programsmagic/toon-cli
 ```
 
 ## Usage

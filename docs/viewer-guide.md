@@ -5,14 +5,14 @@ Complete guide to using the TOON format viewer components.
 ## Installation
 
 ```bash
-npm install @toon/viewer
+npm install @programsmagic/toon-viewer
 ```
 
 ## Basic Usage
 
 ```tsx
-import { FormatViewer } from '@toon/viewer';
-import '@toon/viewer/styles';
+import { FormatViewer } from '@programsmagic/toon-viewer';
+import '@programsmagic/toon-viewer/styles';
 
 function App() {
   return (

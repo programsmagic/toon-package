@@ -1,15 +1,15 @@
-# @toon/core
+# @programsmagic/toon-core
 
 Core types, schema parsers, and normalization logic for Toon Agent Bridge.
 
 ## Installation
 
 ```bash
-npm install @toon/core
+npm install @programsmagic/toon-core
 # or
-pnpm add @toon/core
+pnpm add @programsmagic/toon-core
 # or
-yarn add @toon/core
+yarn add @programsmagic/toon-core
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ yarn add @toon/core
 ### Parse OpenAPI Schema
 
 ```typescript
-import { parseOpenAPISchema } from '@toon/core';
+import { parseOpenAPISchema } from '@programsmagic/toon-core';
 
 const schema = await parseOpenAPISchema('./openapi.json');
 console.log(schema.schema.actions);
@@ -26,7 +26,7 @@ console.log(schema.schema.actions);
 ### Parse agents.json Schema
 
 ```typescript
-import { parseAgentsJsonSchema } from '@toon/core';
+import { parseAgentsJsonSchema } from '@programsmagic/toon-core';
 
 const schema = await parseAgentsJsonSchema('./agents.json');
 console.log(schema.schema.actions);
@@ -36,7 +36,7 @@ console.log(schema.schema.flows);
 ### Use Types
 
 ```typescript
-import { AgentSchema, AgentAction, AgentEvent, EventType } from '@toon/core';
+import { AgentSchema, AgentAction, AgentEvent, EventType } from '@programsmagic/toon-core';
 
 const action: AgentAction = {
   id: 'myAction',
@@ -59,7 +59,7 @@ const event: AgentEvent = {
 
 ## API Reference
 
-See the [full API documentation](https://yourusername.github.io/toon-package/docs/api-reference#tooncore).
+See the [full API documentation](https://programsmagic.github.io/toon-package/docs/api-reference#tooncore).
 
 ## License
 

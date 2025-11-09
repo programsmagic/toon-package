@@ -2,14 +2,14 @@
 
 Complete API reference for Toon Agent Bridge packages.
 
-## @toon/core
+## @programsmagic/toon-core
 
 ### parseOpenAPISchema(source: string): Promise<NormalizedSchema>
 
 Parse an OpenAPI 3.0 schema from file or URL.
 
 ```typescript
-import { parseOpenAPISchema } from '@toon/core';
+import { parseOpenAPISchema } from '@programsmagic/toon-core';
 
 const schema = await parseOpenAPISchema('./openapi.json');
 ```
@@ -19,7 +19,7 @@ const schema = await parseOpenAPISchema('./openapi.json');
 Parse an agents.json schema from file or URL.
 
 ```typescript
-import { parseAgentsJsonSchema } from '@toon/core';
+import { parseAgentsJsonSchema } from '@programsmagic/toon-core';
 
 const schema = await parseAgentsJsonSchema('./agents.json');
 ```
@@ -32,14 +32,14 @@ const schema = await parseAgentsJsonSchema('./agents.json');
 - `AgentEvent`: Event type
 - `EventType`: Event type enum
 
-## @toon/backend-node
+## @programsmagic/toon-backend-node
 
 ### createServer(options: ServerOptions): Promise<Server>
 
 Create a Fastify server from a schema.
 
 ```typescript
-import { createServer } from '@toon/backend-node';
+import { createServer } from '@programsmagic/toon-backend-node';
 
 const server = await createServer({
   port: 3000,
@@ -66,7 +66,7 @@ await server.start();
 - `GET /ws`: WebSocket connection
 - `*`: Auto-generated routes from schema
 
-## @toon/backend-python
+## @programsmagic/toon-backend-python
 
 ### create_server(options: ServerOptions): Promise<dict>
 
@@ -92,7 +92,7 @@ server = await create_server(options)
 - `cors` (bool, default: True): Enable CORS
 - `cors_origins` (list, optional): CORS allowed origins
 
-## @toon/frontend
+## @programsmagic/toon-frontend
 
 ### AgentVisualizer
 

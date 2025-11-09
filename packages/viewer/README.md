@@ -1,22 +1,22 @@
-# @toon/viewer
+# @programsmagic/toon-viewer
 
 Rich React viewer component with split-pane UI for multi-format viewing and conversion.
 
 ## Installation
 
 ```bash
-npm install @toon/viewer
+npm install @programsmagic/toon-viewer
 # or
-pnpm add @toon/viewer
+pnpm add @programsmagic/toon-viewer
 # or
-yarn add @toon/viewer
+yarn add @programsmagic/toon-viewer
 ```
 
 ## Usage
 
 ```tsx
-import { FormatViewer } from '@toon/viewer';
-import '@toon/viewer/styles';
+import { FormatViewer } from '@programsmagic/toon-viewer';
+import '@programsmagic/toon-viewer/styles';
 
 function App() {
   return (

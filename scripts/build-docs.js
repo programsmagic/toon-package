@@ -234,7 +234,7 @@ function createHTMLPage(title, content, currentPath = '') {
     
     <footer>
         <p>Toon Agent Bridge - MIT License</p>
-        <p><a href="https://github.com/yourusername/toon-package">GitHub</a> | <a href="https://www.npmjs.com/org/toon">NPM</a></p>
+        <p><a href="https://github.com/programsmagic/toon-package">GitHub</a> | <a href="https://www.npmjs.com/~programsmagic?tab=packages">NPM</a></p>
     </footer>
 </body>
 </html>`;

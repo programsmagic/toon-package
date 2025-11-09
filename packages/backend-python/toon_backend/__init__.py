@@ -1,5 +1,5 @@
 """
-@toon/backend-python - Python backend adapter for Toon Agent Bridge
+@programsmagic/toon-backend-python - Python backend adapter for Toon Agent Bridge
 """
 
 __version__ = "0.1.0"

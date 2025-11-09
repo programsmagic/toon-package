@@ -7,8 +7,8 @@ export default {
     '^.+\\.ts$': 'ts-jest',
   },
   moduleNameMapper: {
-    '^@toon/format$': '<rootDir>/../format/src',
-    '^@toon/converter$': '<rootDir>/../converter/src',
+    '^@programsmagic/toon-format$': '<rootDir>/../format/src',
+    '^@programsmagic/toon-converter$': '<rootDir>/../converter/src',
     '^(\\.{1,2}/.*)\\.js$': '$1',
   },
   collectCoverageFrom: ['src/**/*.ts', '!src/**/*.d.ts', '!src/**/*.test.ts', '!src/**/*.spec.ts'],

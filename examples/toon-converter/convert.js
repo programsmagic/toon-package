@@ -5,7 +5,7 @@
  */
 import { readFile, writeFile } from 'fs/promises';
 import { existsSync } from 'fs';
-import { convert } from '@toon/converter';
+import { convert } from '@programsmagic/toon-converter';
 
 async function main() {
   const args = process.argv.slice(2);

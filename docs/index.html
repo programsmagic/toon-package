@@ -164,10 +164,10 @@
         <div class="quick-start">
             <h2>Quick Start</h2>
             <p>Install the packages you need:</p>
-            <div class="code-block">npm install @toon/core @toon/backend-node @toon/frontend</div>
+            <div class="code-block">npm install @programsmagic/toon-core @programsmagic/toon-backend-node @programsmagic/toon-frontend</div>
             
             <p>Create a server from your OpenAPI schema:</p>
-            <div class="code-block">import { createServer } from '@toon/backend-node';
+            <div class="code-block">import { createServer } from '@programsmagic/toon-backend-node';
 
 const server = await createServer({
   port: 3000,
@@ -178,8 +178,8 @@ const server = await createServer({
 await server.start();</div>
             
             <p>Use React components for visualization:</p>
-            <div class="code-block">import { AgentVisualizer } from '@toon/frontend';
-import '@toon/frontend/styles';
+            <div class="code-block">import { AgentVisualizer } from '@programsmagic/toon-frontend';
+import '@programsmagic/toon-frontend/styles';
 
 &lt;AgentVisualizer
   url="http://localhost:3000/events"
@@ -228,19 +228,19 @@ import '@toon/frontend/styles';
         <h2 style="color: #6366f1; margin: 40px 0 20px;">Packages</h2>
         <div class="packages">
             <div class="package-card">
-                <h3>@toon/core</h3>
+                <h3>@programsmagic/toon-core</h3>
                 <p>Core types, schema parsers, and normalization logic.</p>
-                <code>npm install @toon/core</code>
+                <code>npm install @programsmagic/toon-core</code>
             </div>
             <div class="package-card">
-                <h3>@toon/backend-node</h3>
+                <h3>@programsmagic/toon-backend-node</h3>
                 <p>Node.js/TypeScript backend adapter with Fastify, SSE, and WebSocket.</p>
-                <code>npm install @toon/backend-node</code>
+                <code>npm install @programsmagic/toon-backend-node</code>
             </div>
             <div class="package-card">
-                <h3>@toon/frontend</h3>
+                <h3>@programsmagic/toon-frontend</h3>
                 <p>React components for agent visualization.</p>
-                <code>npm install @toon/frontend</code>
+                <code>npm install @programsmagic/toon-frontend</code>
             </div>
             <div class="package-card">
                 <h3>toon-backend-python</h3>
@@ -252,7 +252,7 @@ import '@toon/frontend/styles';
     
     <footer>
         <p>Toon Agent Bridge - MIT License</p>
-        <p><a href="https://github.com/yourusername/toon-package" style="color: #6366f1;">GitHub</a> | <a href="https://www.npmjs.com/org/toon" style="color: #6366f1;">NPM</a></p>
+        <p><a href="https://github.com/programsmagic/toon-package" style="color: #6366f1;">GitHub</a> | <a href="https://www.npmjs.com/~programsmagic?tab=packages" style="color: #6366f1;">NPM</a></p>
     </footer>
 </body>
 </html>

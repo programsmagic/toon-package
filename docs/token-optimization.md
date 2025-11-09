@@ -13,7 +13,7 @@ Complete guide to token optimization with TOON format.
 ### Count Tokens in Text
 
 ```typescript
-import { countTokensInText } from '@toon/tokenizer';
+import { countTokensInText } from '@programsmagic/toon-tokenizer';
 
 const result = countTokensInText('Hello, world!', 'gpt-4');
 console.log(result.tokens);
@@ -23,7 +23,7 @@ console.log(result.estimatedCost);
 ### Count Tokens in Data
 
 ```typescript
-import { countTokensInData } from '@toon/tokenizer';
+import { countTokensInData } from '@programsmagic/toon-tokenizer';
 
 const data = { user: { id: 123, name: 'Ada' } };
 const result = countTokensInData(data, 'gpt-4');
@@ -35,7 +35,7 @@ console.log(result.tokens);
 ### Compare Formats
 
 ```typescript
-import { compareAllFormats } from '@toon/converter';
+import { compareAllFormats } from '@programsmagic/toon-converter';
 
 const data = { users: [...] };
 const comparison = compareAllFormats(data);
@@ -72,7 +72,7 @@ const toon = encodeToon(data, { minimize: true });
 Let the system choose the best format:
 
 ```typescript
-import { selectOptimalFormat } from '@toon/converter';
+import { selectOptimalFormat } from '@programsmagic/toon-converter';
 
 const selection = selectOptimalFormat(data);
 // Returns recommended format with alternatives
@@ -83,7 +83,7 @@ const selection = selectOptimalFormat(data);
 Analyze which fields consume the most tokens:
 
 ```typescript
-import { analyzeTokensPerField } from '@toon/tokenizer';
+import { analyzeTokensPerField } from '@programsmagic/toon-tokenizer';
 
 const analysis = analyzeTokensPerField(data, 'gpt-4');
 console.log(analysis.topFields); // Top N most expensive fields

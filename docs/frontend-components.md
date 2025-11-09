@@ -5,7 +5,7 @@ Toon Agent Bridge provides React components for visualizing agent state and even
 ## Installation
 
 ```bash
-npm install @toon/frontend
+npm install @programsmagic/toon-frontend
 ```
 
 ## AgentVisualizer
@@ -15,8 +15,8 @@ The main component for visualizing agent events.
 ### Basic Usage
 
 ```tsx
-import { AgentVisualizer } from '@toon/frontend';
-import '@toon/frontend/styles';
+import { AgentVisualizer } from '@programsmagic/toon-frontend';
+import '@programsmagic/toon-frontend/styles';
 
 function App() {
   return (
@@ -47,7 +47,7 @@ function App() {
 Custom hook for connecting to agent event streams.
 
 ```tsx
-import { useAgentStream } from '@toon/frontend';
+import { useAgentStream } from '@programsmagic/toon-frontend';
 
 function MyComponent() {
   const { events, isConnected, connect, disconnect } = useAgentStream({
@@ -73,7 +73,7 @@ function MyComponent() {
 Component for displaying a timeline of events.
 
 ```tsx
-import { EventTimeline } from '@toon/frontend';
+import { EventTimeline } from '@programsmagic/toon-frontend';
 
 <EventTimeline
   events={events}
@@ -87,7 +87,7 @@ import { EventTimeline } from '@toon/frontend';
 Component for displaying individual action events.
 
 ```tsx
-import { ActionCard } from '@toon/frontend';
+import { ActionCard } from '@programsmagic/toon-frontend';
 
 <ActionCard
   event={event}
@@ -101,7 +101,7 @@ import { ActionCard } from '@toon/frontend';
 Component for visualizing agent flows.
 
 ```tsx
-import { FlowDiagram } from '@toon/frontend';
+import { FlowDiagram } from '@programsmagic/toon-frontend';
 
 const flows = [
   {
@@ -122,7 +122,7 @@ const flows = [
 The package includes a default "toon" theme with animated, colorful styling. Import it:
 
 ```tsx
-import '@toon/frontend/styles';
+import '@programsmagic/toon-frontend/styles';
 ```
 
 ### Customization

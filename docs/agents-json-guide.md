@@ -100,7 +100,7 @@ Links define relationships between actions:
 ## Usage
 
 ```typescript
-import { createServer } from '@toon/backend-node';
+import { createServer } from '@programsmagic/toon-backend-node';
 
 const server = await createServer({
   schemaSource: './agents.json',

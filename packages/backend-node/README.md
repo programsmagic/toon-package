@@ -1,21 +1,21 @@
-# @toon/backend-node
+# @programsmagic/toon-backend-node
 
 Node.js/TypeScript backend adapter for Toon Agent Bridge with Fastify, SSE, and WebSocket support.
 
 ## Installation
 
 ```bash
-npm install @toon/backend-node
+npm install @programsmagic/toon-backend-node
 # or
-pnpm add @toon/backend-node
+pnpm add @programsmagic/toon-backend-node
 # or
-yarn add @toon/backend-node
+yarn add @programsmagic/toon-backend-node
 ```
 
 ## Quick Start
 
 ```typescript
-import { createServer } from '@toon/backend-node';
+import { createServer } from '@programsmagic/toon-backend-node';
 
 const server = await createServer({
   port: 3000,
@@ -29,13 +29,13 @@ await server.start();
 ## CLI Usage
 
 ```bash
-npx @toon/backend-node --schema ./openapi.json --port 3000
+npx @programsmagic/toon-backend-node --schema ./openapi.json --port 3000
 ```
 
 Or install globally:
 
 ```bash
-npm install -g @toon/backend-node
+npm install -g @programsmagic/toon-backend-node
 toon-bridge --schema ./openapi.json --port 3000
 ```
 
@@ -64,11 +64,11 @@ Create a Fastify server from a schema.
 
 ## Examples
 
-See the [examples directory](https://github.com/yourusername/toon-package/tree/main/examples) for complete examples.
+See the [examples directory](https://github.com/programsmagic/toon-package/tree/main/examples) for complete examples.
 
 ## Documentation
 
-See the [full documentation](https://yourusername.github.io/toon-package/docs/getting-started).
+See the [full documentation](https://programsmagic.github.io/toon-package/docs/getting-started).
 
 ## License
 

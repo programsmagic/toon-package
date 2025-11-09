@@ -2,9 +2,9 @@
 
 Universal bridge for converting OpenAPI 3.0 and agents.json schemas into agent-ready workflows with SSE/WebSocket event streaming and React visualization components. Plus TOON format support for LLM token efficiency with rich viewer/converter UI.
 
-[![NPM Version](https://img.shields.io/npm/v/@toon/core)](https://www.npmjs.com/package/@toon/core)
+[![NPM Version](https://img.shields.io/npm/v/@programsmagic/toon-core)](https://www.npmjs.com/package/@programsmagic/toon-core)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://yourusername.github.io/toon-package)
+[![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://programsmagic.github.io/toon-package)
 
 ## Features
 
@@ -28,11 +28,11 @@ Universal bridge for converting OpenAPI 3.0 and agents.json schemas into agent-r
 ### Node.js/TypeScript
 
 ```bash
-npm install @toon/core @toon/backend-node @toon/frontend
+npm install @programsmagic/toon-core @programsmagic/toon-backend-node @programsmagic/toon-frontend
 # or
-pnpm add @toon/core @toon/backend-node @toon/frontend
+pnpm add @programsmagic/toon-core @programsmagic/toon-backend-node @programsmagic/toon-frontend
 # or
-yarn add @toon/core @toon/backend-node @toon/frontend
+yarn add @programsmagic/toon-core @programsmagic/toon-backend-node @programsmagic/toon-frontend
 ```
 
 ### Python
@@ -46,7 +46,7 @@ pip install toon-backend-python
 ### 1. Create a Server from OpenAPI Schema
 
 ```typescript
-import { createServer } from '@toon/backend-node';
+import { createServer } from '@programsmagic/toon-backend-node';
 
 const server = await createServer({
   port: 3000,
@@ -60,8 +60,8 @@ await server.start();
 ### 2. Use React Components for Visualization
 
 ```tsx
-import { AgentVisualizer } from '@toon/frontend';
-import '@toon/frontend/styles';
+import { AgentVisualizer } from '@programsmagic/toon-frontend';
+import '@programsmagic/toon-frontend/styles';
 
 function App() {
   return (
@@ -92,17 +92,17 @@ server = await create_server(options)
 ## Packages
 
 ### Agent Bridge Packages
-- **[@toon/core](./packages/core)** - Core types, schema parsers, and normalization logic
-- **[@toon/backend-node](./packages/backend-node)** - Node.js/TypeScript backend adapter
-- **[@toon/backend-python](./packages/backend-python)** - Python backend adapter
-- **[@toon/frontend](./packages/frontend)** - React components for agent visualization
+- **[@programsmagic/toon-core](./packages/core)** - Core types, schema parsers, and normalization logic
+- **[@programsmagic/toon-backend-node](./packages/backend-node)** - Node.js/TypeScript backend adapter
+- **[@programsmagic/toon-backend-python](./packages/backend-python)** - Python backend adapter
+- **[@programsmagic/toon-frontend](./packages/frontend)** - React components for agent visualization
 
 ### TOON Format Packages
-- **[@toon/format](./packages/format)** - TOON format parser/encoder with TOON+ extensions
-- **[@toon/converter](./packages/converter)** - Multi-format converter (JSON/TOON/CSV/YAML)
-- **[@toon/tokenizer](./packages/tokenizer)** - Token counting and estimation utilities
-- **[@toon/viewer](./packages/viewer)** - Rich React viewer component with split-pane UI
-- **[@toon/cli](./packages/cli)** - Command-line tool for format conversion and optimization
+- **[@programsmagic/toon-format](./packages/format)** - TOON format parser/encoder with TOON+ extensions
+- **[@programsmagic/toon-converter](./packages/converter)** - Multi-format converter (JSON/TOON/CSV/YAML)
+- **[@programsmagic/toon-tokenizer](./packages/tokenizer)** - Token counting and estimation utilities
+- **[@programsmagic/toon-viewer](./packages/viewer)** - Rich React viewer component with split-pane UI
+- **[@programsmagic/toon-cli](./packages/cli)** - Command-line tool for format conversion and optimization
 
 ## Examples
 
@@ -138,7 +138,7 @@ Check out the [examples directory](./examples) for complete working examples:
 - [CLI Usage](./docs/cli-usage.md) - Command-line tool usage
 - [Agent Integration](./docs/agent-integration.md) - Integrating with agent frameworks
 
-**Full documentation**: [https://yourusername.github.io/toon-package](https://yourusername.github.io/toon-package)
+**Full documentation**: [https://programsmagic.github.io/toon-package](https://programsmagic.github.io/toon-package)
 
 ## Development
 
@@ -169,7 +169,7 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ## Links
 
-- [GitHub Repository](https://github.com/yourusername/toon-package)
-- [NPM Packages](https://www.npmjs.com/org/toon)
-- [Documentation](https://yourusername.github.io/toon-package)
-- [Issues](https://github.com/yourusername/toon-package/issues)
+- [GitHub Repository](https://github.com/programsmagic/toon-package)
+- [NPM Packages](https://www.npmjs.com/~programsmagic?tab=packages)
+- [Documentation](https://programsmagic.github.io/toon-package)
+- [Issues](https://github.com/programsmagic/toon-package/issues)

@@ -1,15 +1,15 @@
-# @toon/converter
+# @programsmagic/toon-converter
 
 Multi-format converter (JSON/TOON/CSV/YAML) with smart format selection and auto-detection.
 
 ## Installation
 
 ```bash
-npm install @toon/converter
+npm install @programsmagic/toon-converter
 # or
-pnpm add @toon/converter
+pnpm add @programsmagic/toon-converter
 # or
-yarn add @toon/converter
+yarn add @programsmagic/toon-converter
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ yarn add @toon/converter
 ### Convert Between Formats
 
 ```typescript
-import { convert } from '@toon/converter';
+import { convert } from '@programsmagic/toon-converter';
 
 const json = JSON.stringify({ user: { id: 123, name: 'Ada' } });
 
@@ -33,7 +33,7 @@ console.log(result.metadata.tokenSavings); // Token savings percentage
 ### Auto-Detect Format
 
 ```typescript
-import { convertFile } from '@toon/converter';
+import { convertFile } from '@programsmagic/toon-converter';
 
 const result = convertFile(content, 'data.json', {
   to: 'toon',
@@ -44,7 +44,7 @@ const result = convertFile(content, 'data.json', {
 ### Smart Format Selection
 
 ```typescript
-import { selectOptimalFormat } from '@toon/converter';
+import { selectOptimalFormat } from '@programsmagic/toon-converter';
 
 const data = [{ id: 1, name: 'Alice' }, { id: 2, name: 'Bob' }];
 const selection = selectOptimalFormat(data);
@@ -55,7 +55,7 @@ console.log(selection.recommended); // 'csv' or 'toon'
 ### Batch Conversion
 
 ```typescript
-import { batchConvert } from '@toon/converter';
+import { batchConvert } from '@programsmagic/toon-converter';
 
 const result = await batchConvert(
   [

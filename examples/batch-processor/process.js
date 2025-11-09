@@ -5,8 +5,8 @@
  */
 import { readdir, readFile, writeFile } from 'fs/promises';
 import { join, extname } from 'path';
-import { convert, convertFile } from '@toon/converter';
-import { countTokensInData } from '@toon/tokenizer';
+import { convert, convertFile } from '@programsmagic/toon-converter';
+import { countTokensInData } from '@programsmagic/toon-tokenizer';
 
 async function main() {
   const args = process.argv.slice(2);

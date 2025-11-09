@@ -40,7 +40,7 @@ Create a file `agents.json`:
 ### Node.js
 
 ```bash
-npm install @toon/backend-node
+npm install @programsmagic/toon-backend-node
 npx toon-bridge --schema ./agents.json --port 3000
 ```
 
@@ -54,8 +54,8 @@ toon-bridge --schema ./agents.json --port 8000
 ## Step 3: Add Frontend Visualization
 
 ```tsx
-import { AgentVisualizer } from '@toon/frontend';
-import '@toon/frontend/styles';
+import { AgentVisualizer } from '@programsmagic/toon-frontend';
+import '@programsmagic/toon-frontend/styles';
 
 function App() {
   return (

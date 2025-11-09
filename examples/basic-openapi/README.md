@@ -65,11 +65,11 @@ You'll see events streamed in real-time as you make API calls.
 
 ## Frontend Integration
 
-You can use the React components from `@toon/frontend` to visualize the agent events:
+You can use the React components from `@programsmagic/toon-frontend` to visualize the agent events:
 
 ```tsx
-import { AgentVisualizer } from '@toon/frontend';
-import '@toon/frontend/styles';
+import { AgentVisualizer } from '@programsmagic/toon-frontend';
+import '@programsmagic/toon-frontend/styles';
 
 function App() {
   return (

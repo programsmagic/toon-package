@@ -7,9 +7,9 @@ export default {
     '^.+\\.tsx?$': 'ts-jest',
   },
   moduleNameMapper: {
-    '^@toon/converter$': '<rootDir>/../converter/src',
-    '^@toon/tokenizer$': '<rootDir>/../tokenizer/src',
-    '^@toon/frontend$': '<rootDir>/../frontend/src',
+    '^@programsmagic/toon-converter$': '<rootDir>/../converter/src',
+    '^@programsmagic/toon-tokenizer$': '<rootDir>/../tokenizer/src',
+    '^@programsmagic/toon-frontend$': '<rootDir>/../frontend/src',
     '^(\\.{1,2}/.*)\\.js$': '$1',
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
   },

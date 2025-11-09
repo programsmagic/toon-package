@@ -1,22 +1,22 @@
-# @toon/frontend
+# @programsmagic/toon-frontend
 
 React components for agent visualization with animated toon styling.
 
 ## Installation
 
 ```bash
-npm install @toon/frontend
+npm install @programsmagic/toon-frontend
 # or
-pnpm add @toon/frontend
+pnpm add @programsmagic/toon-frontend
 # or
-yarn add @toon/frontend
+yarn add @programsmagic/toon-frontend
 ```
 
 ## Quick Start
 
 ```tsx
-import { AgentVisualizer } from '@toon/frontend';
-import '@toon/frontend/styles';
+import { AgentVisualizer } from '@programsmagic/toon-frontend';
+import '@programsmagic/toon-frontend/styles';
 
 function App() {
   return (
@@ -50,7 +50,7 @@ Main visualization component for agent events.
 React hook for connecting to agent event streams.
 
 ```tsx
-import { useAgentStream } from '@toon/frontend';
+import { useAgentStream } from '@programsmagic/toon-frontend';
 
 function MyComponent() {
   const { events, isConnected, connect, disconnect } = useAgentStream({
@@ -73,7 +73,7 @@ function MyComponent() {
 Component for displaying a timeline of events.
 
 ```tsx
-import { EventTimeline } from '@toon/frontend';
+import { EventTimeline } from '@programsmagic/toon-frontend';
 
 <EventTimeline events={events} maxEvents={100} />
 ```
@@ -83,7 +83,7 @@ import { EventTimeline } from '@toon/frontend';
 Component for displaying individual action events.
 
 ```tsx
-import { ActionCard } from '@toon/frontend';
+import { ActionCard } from '@programsmagic/toon-frontend';
 
 <ActionCard event={event} index={0} />
 ```
@@ -93,7 +93,7 @@ import { ActionCard } from '@toon/frontend';
 Component for visualizing agent flows.
 
 ```tsx
-import { FlowDiagram } from '@toon/frontend';
+import { FlowDiagram } from '@programsmagic/toon-frontend';
 
 <FlowDiagram events={events} flows={flows} />
 ```
@@ -103,7 +103,7 @@ import { FlowDiagram } from '@toon/frontend';
 Import the default "toon" theme:
 
 ```tsx
-import '@toon/frontend/styles';
+import '@programsmagic/toon-frontend/styles';
 ```
 
 Or customize CSS variables:
@@ -118,11 +118,11 @@ Or customize CSS variables:
 
 ## Examples
 
-See the [examples directory](https://github.com/yourusername/toon-package/tree/main/examples) for complete examples.
+See the [examples directory](https://github.com/programsmagic/toon-package/tree/main/examples) for complete examples.
 
 ## Documentation
 
-See the [full documentation](https://yourusername.github.io/toon-package/docs/frontend-components).
+See the [full documentation](https://programsmagic.github.io/toon-package/docs/frontend-components).
 
 ## License
 

@@ -1,15 +1,15 @@
-# @toon/tokenizer
+# @programsmagic/toon-tokenizer
 
 Token counting and estimation utilities for multiple LLM models.
 
 ## Installation
 
 ```bash
-npm install @toon/tokenizer
+npm install @programsmagic/toon-tokenizer
 # or
-pnpm add @toon/tokenizer
+pnpm add @programsmagic/toon-tokenizer
 # or
-yarn add @toon/tokenizer
+yarn add @programsmagic/toon-tokenizer
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ yarn add @toon/tokenizer
 ### Count Tokens
 
 ```typescript
-import { countTokensInText } from '@toon/tokenizer';
+import { countTokensInText } from '@programsmagic/toon-tokenizer';
 
 const result = countTokensInText('Hello, world!', 'gpt-4');
 console.log(result.tokens); // Token count
@@ -27,7 +27,7 @@ console.log(result.estimatedCost); // Estimated cost
 ### Real-time Estimation
 
 ```typescript
-import { createTokenEstimator } from '@toon/tokenizer';
+import { createTokenEstimator } from '@programsmagic/toon-tokenizer';
 
 const estimator = createTokenEstimator('gpt-4', 300);
 const result = await estimator('Your text here');
@@ -36,7 +36,7 @@ const result = await estimator('Your text here');
 ### Per-Field Analysis
 
 ```typescript
-import { analyzeTokensPerField } from '@toon/tokenizer';
+import { analyzeTokensPerField } from '@programsmagic/toon-tokenizer';
 
 const data = { user: { id: 123, name: 'Ada' } };
 const analysis = analyzeTokensPerField(data, 'gpt-4');
@@ -46,7 +46,7 @@ console.log(analysis.topFields); // Top N most expensive fields
 ### Audit Files
 
 ```typescript
-import { auditFile } from '@toon/tokenizer';
+import { auditFile } from '@programsmagic/toon-tokenizer';
 
 const result = await auditFile('data.json', 'gpt-4');
 console.log(result.potentialSavings); // Potential savings with TOON

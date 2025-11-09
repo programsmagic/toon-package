@@ -1,4 +1,4 @@
-# @toon/backend-python
+# @programsmagic/toon-backend-python
 
 Python backend adapter for Toon Agent Bridge with FastAPI, SSE, and WebSocket support.
 

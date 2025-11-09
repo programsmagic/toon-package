@@ -1,15 +1,15 @@
-# @toon/format
+# @programsmagic/toon-format
 
 TOON format parser/encoder with TOON+ extensions for LLM token efficiency.
 
 ## Installation
 
 ```bash
-npm install @toon/format
+npm install @programsmagic/toon-format
 # or
-pnpm add @toon/format
+pnpm add @programsmagic/toon-format
 # or
-yarn add @toon/format
+yarn add @programsmagic/toon-format
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ yarn add @toon/format
 ### Encode JSON to TOON
 
 ```typescript
-import { encodeToon } from '@toon/format';
+import { encodeToon } from '@programsmagic/toon-format';
 
 const json = {
   user: {
@@ -35,7 +35,7 @@ console.log(toon);
 ### Parse TOON to JSON
 
 ```typescript
-import { parseToon } from '@toon/format';
+import { parseToon } from '@programsmagic/toon-format';
 
 const toon = `user id 123 name Ada tags [reading gaming] active true`;
 
@@ -46,7 +46,7 @@ console.log(result.data);
 ### TOON+ Extensions
 
 ```typescript
-import { encodeToon } from '@toon/format';
+import { encodeToon } from '@programsmagic/toon-format';
 
 const toon = encodeToon(json, {
   toonPlus: true,

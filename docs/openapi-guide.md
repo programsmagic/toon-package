@@ -42,7 +42,7 @@ Toon Agent Bridge supports OpenAPI 3.0 schemas, automatically converting them in
 ### Using the Schema
 
 ```typescript
-import { createServer } from '@toon/backend-node';
+import { createServer } from '@programsmagic/toon-backend-node';
 
 const server = await createServer({
   schemaSource: './openapi.json',

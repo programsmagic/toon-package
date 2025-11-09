@@ -56,7 +56,7 @@ def on_task_start(task):
 
 ```typescript
 import { useCopilotAction } from '@copilotkit/react-core';
-import { encodeToon } from '@toon/format';
+import { encodeToon } from '@programsmagic/toon-format';
 
 useCopilotAction({
   name: 'processData',
@@ -71,8 +71,8 @@ useCopilotAction({
 ## Frontend Integration
 
 ```tsx
-import { FormatViewer, StreamViewer } from '@toon/frontend';
-import '@toon/viewer/styles';
+import { FormatViewer, StreamViewer } from '@programsmagic/toon-frontend';
+import '@programsmagic/toon-viewer/styles';
 
 function App() {
   return (
@@ -94,7 +94,7 @@ function App() {
 ## Backend Integration
 
 ```typescript
-import { createServer } from '@toon/backend-node';
+import { createServer } from '@programsmagic/toon-backend-node';
 
 const server = await createServer({
   port: 3000,

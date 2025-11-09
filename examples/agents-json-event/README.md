@@ -83,8 +83,8 @@ curl -X POST http://localhost:3000/tasks \
 Use the React components to visualize agent workflows:
 
 ```tsx
-import { AgentVisualizer } from '@toon/frontend';
-import '@toon/frontend/styles';
+import { AgentVisualizer } from '@programsmagic/toon-frontend';
+import '@programsmagic/toon-frontend/styles';
 
 const flows = [
   {

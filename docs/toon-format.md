@@ -93,7 +93,7 @@ user id 123 name Ada
 Strip all whitespace for pure model use:
 
 ```typescript
-import { encodeToon } from '@toon/format';
+import { encodeToon } from '@programsmagic/toon-format';
 
 const toon = encodeToon(data, { minimize: true });
 // Output: user id 123 name Ada tags [reading gaming]
@@ -104,7 +104,7 @@ const toon = encodeToon(data, { minimize: true });
 ### Encoding
 
 ```typescript
-import { encodeToon } from '@toon/format';
+import { encodeToon } from '@programsmagic/toon-format';
 
 const data = {
   user: {
@@ -122,7 +122,7 @@ console.log(toon);
 ### Parsing
 
 ```typescript
-import { parseToon } from '@toon/format';
+import { parseToon } from '@programsmagic/toon-format';
 
 const toon = `user id 123 name Ada tags [reading gaming] active true`;
 const result = parseToon(toon);
