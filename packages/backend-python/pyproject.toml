@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 license = {text = "MIT"}
 authors = [
-    {name = "", email = ""}
+    {name = "Toon Agent Bridge Contributors", email = "noreply@github.com"}
 ]
 keywords = ["agent-bridge", "fastapi", "sse", "websocket", "openapi", "agents-json"]
 classifiers = [
