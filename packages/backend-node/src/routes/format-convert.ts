@@ -1,6 +1,5 @@
 import { FastifyInstance } from 'fastify';
-import { convert } from '@programsmagic/toon-converter';
-import { SupportedFormat } from '@programsmagic/toon-converter';
+import { convert, type SupportedFormat } from '@programsmagic/toon-converter';
 
 interface ConvertRequest {
   Body: {
@@ -43,8 +42,14 @@ export function registerFormatConvertRoute(fastify: FastifyInstance): void {
         metadata: result.metadata,
       });
     } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      const errorStack = error instanceof Error && process.env.NODE_ENV !== 'production' 
+        ? error.stack 
+        : undefined;
+      
       return reply.code(500).send({
-        error: error instanceof Error ? error.message : 'Unknown error',
+        error: errorMessage,
+        ...(errorStack && { stack: errorStack }),
       });
     }
   });

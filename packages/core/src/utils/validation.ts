@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { AgentSchema, AgentAction, AgentFlow } from '../types/agent-schema.js';
+import { log } from './logger.js';
 
 /**
  * Zod schemas for runtime validation
@@ -83,7 +84,7 @@ export function validateAgentSchema(schema: unknown): schema is AgentSchema {
     return true;
   } catch (error) {
     if (error instanceof z.ZodError) {
-      console.error('Schema validation errors:', error.errors);
+      log.error('Schema validation errors', error);
     }
     return false;
   }

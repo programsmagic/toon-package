@@ -1,5 +1,5 @@
 import { FastifyInstance } from 'fastify';
-import { countTokensInText, countTokensInData, ModelName } from '@programsmagic/toon-tokenizer';
+import { countTokensInText, countTokensInData, type ModelName } from '@programsmagic/toon-tokenizer';
 
 interface TokensRequest {
   Body: {
@@ -32,8 +32,14 @@ export function registerTokensRoute(fastify: FastifyInstance): void {
 
       return reply.send(result);
     } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      const errorStack = error instanceof Error && process.env.NODE_ENV !== 'production' 
+        ? error.stack 
+        : undefined;
+      
       return reply.code(500).send({
-        error: error instanceof Error ? error.message : 'Unknown error',
+        error: errorMessage,
+        ...(errorStack && { stack: errorStack }),
       });
     }
   });
