@@ -28,7 +28,8 @@ export function encodeToon(
     useLengthMarkers = false,
   } = options;
 
-  let toon = encodeValue(data, 0, minimize, delimiter, useLengthMarkers);
+  const seen = new WeakSet();
+  let toon = encodeValue(data, 0, minimize, delimiter, useLengthMarkers, seen);
 
   // Add TOON+ extensions if requested
   if (toonPlus || includeIndex || includeMetadata || includeComments) {
@@ -60,12 +61,12 @@ function encodeValue(
   depth: number,
   minimize: boolean,
   delimiter: string,
-  useLengthMarkers: boolean
+  useLengthMarkers: boolean,
+  seen: WeakSet<object>
 ): string {
   const indent = minimize ? '' : '  '.repeat(depth);
-  // const newline = minimize ? '' : '\n'; // Reserved for future use
 
-  if (value === null) {
+  if (value === null || value === undefined) {
     return formatNull();
   }
 
@@ -84,13 +85,20 @@ function encodeValue(
     return value;
   }
 
+  if (typeof value === 'object') {
+    if (seen.has(value)) {
+      throw new Error('Circular reference detected during TOON encoding');
+    }
+    seen.add(value);
+  }
+
   if (Array.isArray(value)) {
     if (value.length === 0) {
       return '[]';
     }
 
     const items = value.map((item) => {
-      const encoded = encodeValue(item, depth + 1, minimize, delimiter, useLengthMarkers);
+      const encoded = encodeValue(item, depth + 1, minimize, delimiter, useLengthMarkers, seen);
       if (useLengthMarkers) {
         return `${encoded.length}${delimiter}${encoded}`;
       }
@@ -112,7 +120,7 @@ function encodeValue(
 
     const pairs = entries.map(([key, val]) => {
       const encodedKey = needsQuoting(key) ? `"${escapeToon(key)}"` : key;
-      const encodedValue = encodeValue(val, depth + 1, minimize, delimiter, useLengthMarkers);
+      const encodedValue = encodeValue(val, depth + 1, minimize, delimiter, useLengthMarkers, seen);
       
       if (useLengthMarkers) {
         const pair = `${encodedKey}${delimiter}${encodedValue}`;

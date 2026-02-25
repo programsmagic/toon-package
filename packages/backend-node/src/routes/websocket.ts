@@ -28,9 +28,10 @@ export async function registerWebSocketRoute(
         if (connection.socket.readyState === 1) { // WebSocket.OPEN
           connection.socket.send(JSON.stringify(event));
         }
-      } catch (error) {
-        // Client disconnected
-        eventEmitter.off(EventType.HEARTBEAT, handler);
+      } catch {
+        Object.values(EventType).forEach((eventType) => {
+          eventEmitter.off(eventType, handler);
+        });
       }
     };
 

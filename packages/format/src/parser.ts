@@ -203,7 +203,7 @@ function parseWithLengthMarkers(content: string, delimiter: string): string[] {
   while (i < content.length) {
     // Find length marker
     let lengthStr = '';
-    while (i < content.length && /^\d$/.test(content[i])) {
+    while (i < content.length && /\d/.test(content[i])) {
       lengthStr += content[i];
       i++;
     }

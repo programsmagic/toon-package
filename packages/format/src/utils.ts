@@ -57,8 +57,11 @@ export function needsQuoting(value: string): boolean {
  * Format number for TOON (preserve type)
  */
 export function formatNumber(value: number): string {
-  if (Number.isInteger(value)) {
-    return value.toString();
+  if (Number.isNaN(value)) {
+    return 'null';
+  }
+  if (!Number.isFinite(value)) {
+    return value > 0 ? '"Infinity"' : '"-Infinity"';
   }
   return value.toString();
 }

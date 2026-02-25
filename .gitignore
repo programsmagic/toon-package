@@ -18,7 +18,8 @@ coverage
 .env.local
 .env.*.local
 
-# IDE
+# IDE / Editor
+.cursor
 .vscode
 .idea
 *.swp

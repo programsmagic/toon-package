@@ -5,6 +5,9 @@ export interface UseAgentStreamOptions {
   url: string;
   protocol?: 'sse' | 'websocket';
   autoConnect?: boolean;
+  reconnect?: boolean;
+  maxReconnectAttempts?: number;
+  reconnectBaseDelay?: number;
   onEvent?: (event: AgentEvent) => void;
   onError?: (error: Error) => void;
   onConnect?: () => void;
@@ -29,6 +32,9 @@ export function useAgentStream(options: UseAgentStreamOptions): UseAgentStreamRe
     url,
     protocol = 'sse',
     autoConnect = true,
+    reconnect = true,
+    maxReconnectAttempts = 5,
+    reconnectBaseDelay = 1000,
     onEvent,
     onError,
     onConnect,
@@ -43,16 +49,35 @@ export function useAgentStream(options: UseAgentStreamOptions): UseAgentStreamRe
   const eventSourceRef = useRef<EventSource | null>(null);
   const websocketRef = useRef<WebSocket | null>(null);
   const reconnectTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const reconnectAttemptsRef = useRef(0);
+  const intentionalDisconnectRef = useRef(false);
+  const connectRef = useRef<() => void>(() => {});
 
   const clearEvents = useCallback(() => {
     setEvents([]);
   }, []);
+
+  const scheduleReconnect = useCallback(() => {
+    if (
+      !reconnect ||
+      intentionalDisconnectRef.current ||
+      reconnectAttemptsRef.current >= maxReconnectAttempts
+    ) {
+      return;
+    }
+    const delay = reconnectBaseDelay * Math.pow(2, reconnectAttemptsRef.current);
+    reconnectAttemptsRef.current++;
+    reconnectTimeoutRef.current = setTimeout(() => {
+      connectRef.current();
+    }, delay);
+  }, [reconnect, maxReconnectAttempts, reconnectBaseDelay]);
 
   const connect = useCallback(() => {
     if (isConnecting || isConnected) {
       return;
     }
 
+    intentionalDisconnectRef.current = false;
     setIsConnecting(true);
     setError(null);
 
@@ -64,6 +89,7 @@ export function useAgentStream(options: UseAgentStreamOptions): UseAgentStreamRe
         eventSource.onopen = () => {
           setIsConnected(true);
           setIsConnecting(false);
+          reconnectAttemptsRef.current = 0;
           onConnect?.();
         };
 
@@ -79,19 +105,22 @@ export function useAgentStream(options: UseAgentStreamOptions): UseAgentStreamRe
           }
         };
 
-        eventSource.onerror = (_err) => {
+        eventSource.onerror = () => {
           setIsConnected(false);
           setIsConnecting(false);
           const error = new Error('SSE connection error');
           setError(error);
           onError?.(error);
           eventSource.close();
+          eventSourceRef.current = null;
+          scheduleReconnect();
         };
       } catch (err: unknown) {
         const error = err instanceof Error ? err : new Error('Failed to create EventSource');
         setError(error);
         setIsConnecting(false);
         onError?.(error);
+        scheduleReconnect();
       }
     } else if (protocol === 'websocket') {
       try {
@@ -101,6 +130,7 @@ export function useAgentStream(options: UseAgentStreamOptions): UseAgentStreamRe
         ws.onopen = () => {
           setIsConnected(true);
           setIsConnecting(false);
+          reconnectAttemptsRef.current = 0;
           onConnect?.();
         };
 
@@ -127,18 +157,28 @@ export function useAgentStream(options: UseAgentStreamOptions): UseAgentStreamRe
         ws.onclose = () => {
           setIsConnected(false);
           setIsConnecting(false);
+          websocketRef.current = null;
           onDisconnect?.();
+          scheduleReconnect();
         };
       } catch (err: unknown) {
         const error = err instanceof Error ? err : new Error('Failed to create WebSocket');
         setError(error);
         setIsConnecting(false);
         onError?.(error);
+        scheduleReconnect();
       }
     }
-  }, [url, protocol, isConnecting, isConnected, onEvent, onError, onConnect, onDisconnect]);
+  }, [url, protocol, isConnecting, isConnected, onEvent, onError, onConnect, onDisconnect, scheduleReconnect]);
+
+  connectRef.current = connect;
 
   const disconnect = useCallback(() => {
+    intentionalDisconnectRef.current = true;
+    if (reconnectTimeoutRef.current) {
+      clearTimeout(reconnectTimeoutRef.current);
+      reconnectTimeoutRef.current = null;
+    }
     if (eventSourceRef.current) {
       eventSourceRef.current.close();
       eventSourceRef.current = null;
@@ -147,10 +187,7 @@ export function useAgentStream(options: UseAgentStreamOptions): UseAgentStreamRe
       websocketRef.current.close();
       websocketRef.current = null;
     }
-    if (reconnectTimeoutRef.current) {
-      clearTimeout(reconnectTimeoutRef.current);
-      reconnectTimeoutRef.current = null;
-    }
+    reconnectAttemptsRef.current = 0;
     setIsConnected(false);
     setIsConnecting(false);
     onDisconnect?.();
@@ -176,4 +213,3 @@ export function useAgentStream(options: UseAgentStreamOptions): UseAgentStreamRe
     clearEvents,
   };
 }
-

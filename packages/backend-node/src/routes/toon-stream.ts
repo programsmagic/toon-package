@@ -20,6 +20,10 @@ export function registerToonStreamRoute(fastify: FastifyInstance, _eventEmitter:
       return reply.code(400).send({ error: 'File parameter required' });
     }
 
+    if (file.includes('..') || file.startsWith('/') || file.includes('\0')) {
+      return reply.code(400).send({ error: 'Invalid file path' });
+    }
+
     if (!existsSync(file)) {
       return reply.code(404).send({ error: 'File not found' });
     }
@@ -31,10 +35,6 @@ export function registerToonStreamRoute(fastify: FastifyInstance, _eventEmitter:
     reply.raw.setHeader('X-Accel-Buffering', 'no');
 
     try {
-      // Validate file path (security: prevent directory traversal)
-      if (file.includes('..') || file.startsWith('/')) {
-        return reply.code(400).send({ error: 'Invalid file path' });
-      }
 
       const content = await readFile(file, 'utf-8');
       

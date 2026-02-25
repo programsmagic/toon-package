@@ -20,9 +20,10 @@ export function registerStreamRoute(fastify: FastifyInstance, eventEmitter: Even
     const handler = (event: AgentEvent) => {
       try {
         reply.raw.write(`data: ${JSON.stringify(event)}\n\n`);
-      } catch (error) {
-        // Client disconnected
-        eventEmitter.off(EventType.HEARTBEAT, handler);
+      } catch {
+        Object.values(EventType).forEach((eventType) => {
+          eventEmitter.off(eventType, handler);
+        });
         return;
       }
     };

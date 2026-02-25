@@ -5,15 +5,15 @@ All notable changes to Toon Agent Bridge will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.1.0] - 2025-01-XX
+## [0.1.0] - 2025-11-08
 
 ### Added
 
 - Initial release of Toon Agent Bridge
-- `@toon/core` package with OpenAPI 3.0 and agents.json parsers
-- `@toon/backend-node` package with Fastify server, SSE, and WebSocket support
-- `@toon/backend-python` package with FastAPI server, SSE, and WebSocket support
-- `@toon/frontend` package with React components for agent visualization
+- `@programsmagic/toon-core` package with OpenAPI 3.0 and agents.json parsers
+- `@programsmagic/toon-backend-node` package with Fastify server, SSE, and WebSocket support
+- `@programsmagic/toon-backend-python` package with FastAPI server, SSE, and WebSocket support
+- `@programsmagic/toon-frontend` package with React components for agent visualization
 - Support for OpenAPI 3.0 schema parsing and normalization
 - Support for agents.json schema parsing and normalization
 - Real-time event streaming via SSE and WebSocket

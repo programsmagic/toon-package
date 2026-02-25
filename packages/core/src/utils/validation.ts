@@ -75,42 +75,80 @@ export const AgentSchemaSchema = z.object({
   metadata: z.record(z.unknown()).optional(),
 });
 
+export interface ValidationResult<T = unknown> {
+  success: boolean;
+  data?: T;
+  errors?: Array<{ path: string; message: string }>;
+}
+
 /**
  * Validate an agent schema
  */
 export function validateAgentSchema(schema: unknown): schema is AgentSchema {
-  try {
-    AgentSchemaSchema.parse(schema);
-    return true;
-  } catch (error) {
-    if (error instanceof z.ZodError) {
-      log.error('Schema validation errors', error);
-    }
-    return false;
+  return safeValidateAgentSchema(schema).success;
+}
+
+/**
+ * Validate an agent schema and return detailed errors
+ */
+export function safeValidateAgentSchema(schema: unknown): ValidationResult<AgentSchema> {
+  const result = AgentSchemaSchema.safeParse(schema);
+  if (result.success) {
+    return { success: true, data: result.data as AgentSchema };
   }
+  const errors = result.error.issues.map((issue) => ({
+    path: issue.path.join('.'),
+    message: issue.message,
+  }));
+  log.error('Schema validation errors', result.error);
+  return { success: false, errors };
 }
 
 /**
  * Validate an agent action
  */
 export function validateAgentAction(action: unknown): action is AgentAction {
-  try {
-    AgentActionSchema.parse(action);
-    return true;
-  } catch {
-    return false;
+  return safeValidateAgentAction(action).success;
+}
+
+/**
+ * Validate an agent action and return detailed errors
+ */
+export function safeValidateAgentAction(action: unknown): ValidationResult<AgentAction> {
+  const result = AgentActionSchema.safeParse(action);
+  if (result.success) {
+    return { success: true, data: result.data as AgentAction };
   }
+  return {
+    success: false,
+    errors: result.error.issues.map((issue) => ({
+      path: issue.path.join('.'),
+      message: issue.message,
+    })),
+  };
 }
 
 /**
  * Validate an agent flow
  */
 export function validateAgentFlow(flow: unknown): flow is AgentFlow {
-  try {
-    AgentFlowSchema.parse(flow);
-    return true;
-  } catch {
-    return false;
+  return safeValidateAgentFlow(flow).success;
+}
+
+/**
+ * Validate an agent flow and return detailed errors
+ */
+export function safeValidateAgentFlow(flow: unknown): ValidationResult<AgentFlow> {
+  const result = AgentFlowSchema.safeParse(flow);
+  if (result.success) {
+    return { success: true, data: result.data as AgentFlow };
   }
+  return {
+    success: false,
+    errors: result.error.issues.map((issue) => ({
+      path: issue.path.join('.'),
+      message: issue.message,
+    })),
+  };
 }
 
